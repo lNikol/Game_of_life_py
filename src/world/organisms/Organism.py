@@ -61,6 +61,10 @@ class Organism(ABC):
     def set_is_alive(self, is_alive):
         self.__is_alive = is_alive
         return None
+    def set_position(self, y,x):
+        self.__y, self.__x = y, x
+        return None
+
     def get_age(self):
         return self.__age
     def set_age(self, age):
@@ -87,10 +91,3 @@ class Organism(ABC):
             return True
         else:
             return False
-
-
-
-
-
-
-

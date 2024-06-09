@@ -4,35 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8555d1a-7024-4732-a4d2-d0feddd6a911" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Game_of_life_py.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/Cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/Game.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/Map.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/World.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/Organism.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/animals/Animal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/animals/Antelope.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/animals/CyberSheep.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/animals/Fox.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/animals/Human.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/animals/Sheep.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/animals/Turtle.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/animals/Wolf.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/animals/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/plants/Dandelion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/plants/Grass.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/plants/Guarana.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/plants/Hogweed.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/plants/Plant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/plants/Wolfberries.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/world/organisms/plants/__init__.py" afterDir="false" />
+    <list default="true" id="a8555d1a-7024-4732-a4d2-d0feddd6a911" name="Changes" comment="initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/Organism.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/Organism.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Animal.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Animal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Antelope.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Antelope.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/CyberSheep.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/CyberSheep.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Fox.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Fox.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Sheep.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Sheep.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Turtle.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Turtle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Wolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Wolf.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +43,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.Cell.executor": "Run",
+    "Python.Organism.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -97,14 +80,29 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717948716014</updated>
-      <workItem from="1717948717391" duration="5275000" />
+      <workItem from="1717948717391" duration="8770000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1717954702877</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717954702877</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Game_of_life_py$main.coverage" NAME="main Coverage Results" MODIFIED="1717949671054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Cell.coverage" NAME="Cell Coverage Results" MODIFIED="1717957539278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Organism.coverage" NAME="Organism Coverage Results" MODIFIED="1717957555698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms" />
   </component>
 </project>
