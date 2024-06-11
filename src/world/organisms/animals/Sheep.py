@@ -1,5 +1,6 @@
 from .Animal import Animal
 
+
 class Sheep(Animal):
     def __init__(self, position, world, age=0):
         super().__init__("Sheep", position[0], position[1], 4, 4, world, age)

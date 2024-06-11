@@ -1,12 +1,14 @@
 from .Animal import Animal
-from ...Cell import Cell
+
+
 class Fox(Animal):
     def __init__(self, position, world, age=0):
-        super().__init__("Wolf", position[0], position[1], 9, 5, world, age)
-        print(f"Wolf ({self.__y}, {self.__x}) was created")
+        super().__init__("Fox", position[0], position[1], 9, 5, world, age)
+        print(f"Fox ({self.__y}, {self.__x}) was created")
 
     def copy(self, position):
         return Fox(position, self.__world)
+
     def action(self):
         pos = self.__world.check_cells_around(self.get_position(), False)
         for cell in pos:
@@ -16,5 +18,6 @@ class Fox(Animal):
                 self.set_position(*(cell.get_pos()), False)
                 super().collision(cell.get_org())
                 return
+
     def rebound_attack(self, org):
         return False

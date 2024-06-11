@@ -1,8 +1,8 @@
 from abc import abstractmethod
+from src.world.organisms.Organism import Organism
+from src.world.organisms.plants.Plant import Plant
+from .Antelope import Antelope
 
-from ..Organism import Organism
-from ..plants.Plant import Plant
-from ..animals.Antelope import Antelope
 
 class Animal(Organism):
     def __init__(self, name, y, x, power, initiative, world, age=0):

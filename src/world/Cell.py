@@ -1,7 +1,5 @@
-from organisms.Organism import Organism
-
 class Cell:
-    def __init__(self, y=-1 , x=-1, organism=None, is_hex=False):
+    def __init__(self, y=-1, x=-1, organism=None, is_hex=False):
         self.__is_hex = is_hex
         self.__org = organism
         self.__y = y
