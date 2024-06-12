@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+
 from .World import World
 
 
@@ -9,6 +10,7 @@ class Game(tk.Tk):
         self.dane = dane
         self.__world = None
         self.create_world(dane[0], dane[1], dane[2], dane[3])
+
         self.start_turn()
     def create_world(self, width, height, read, is_hex):
         self.__world = World(width, height, read, is_hex)
@@ -46,6 +48,7 @@ class Game(tk.Tk):
                     # czy is_hex : self.dane[2] == 1
         except (FileNotFoundError, IOError):
             self.create_world(self.dane[0], self.dane[1], False, self.dane[2] == 1)
+
 
     def end_game(self):
         self.destroy()

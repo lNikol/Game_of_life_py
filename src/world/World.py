@@ -161,7 +161,7 @@ class World:
                 self.__organisms.pop(i)
             i -= 1
 
-        self.__organisms.sort(key=lambda x: (x.get_initiative(), -x.get_age()))
+        self.__organisms.sort(key=lambda x: (-x.get_initiative(), -x.get_age()))
 
     def take_a_turn(self):
         self.__human_is_alive = self.__human is not None and self.__human.get_is_alive()
@@ -278,7 +278,10 @@ class World:
         return self.__map.get_cell(position)
     def get_human_is_alive(self):
         return self.__human_is_alive
-
+    def get_human(self):
+        return self.__human
+    def get_is_player_turn(self):
+        return self.__is_player_turn
     def get_map(self):
         return self.__map
 

@@ -1,6 +1,6 @@
 from .Animal import Animal
-
 import random
+from pynput import keyboard
 
 
 class Human(Animal):
@@ -13,13 +13,25 @@ class Human(Animal):
         self.__counter_after_ability = 0
         self.__ability_counter = -1
         print(f"Human ({self._y},{self._x}) was created\n")
+        self.listener = None
 
     def copy(self, position):
         return Human(position, self._world)
 
     def action(self):
         print("\n\nYour turn\n\n")
+        self._world.set_is_player_turn(True)
+        self.listener = keyboard.Listener(
+            on_press=self.on_press,
+            on_release=self.on_release
+        )
+        self.listener.start()
+        self.listener.join()
+        self.listener.stop()  # Stop the listener after action is completed
         self.move_system()
+        self._world.set_is_player_turn(False)
+        self.listener = None
+
 
     def set_key(self, key):
         self.__last_key_pressed = key
@@ -123,3 +135,28 @@ class Human(Animal):
         else:
             # Implementacja ruchów dla szachownicy heksagonalnej
             pass
+
+    def on_press(self, key):
+        if self._world.get_is_player_turn():
+            try:
+                if key.char == 'w':
+                    print("tutaj w")
+                    self.set_key('w')
+                elif key.char == 's':
+                    print("tutaj s")
+                    self.set_key('s')
+                elif key.char == 'a':
+                    print("tutaj a")
+                    self.set_key('a')
+                elif key.char == 'd':
+                    print("tutaj d")
+                    self.set_key('d')
+                elif key.char == 'o':
+                    print("tutaj o")
+                    self.set_key('o')
+
+            except AttributeError:
+                pass
+
+    def on_release(self, key):
+        return False
