@@ -15,8 +15,8 @@ class Game(tk.Tk):
             self.create_world(self.dane[0], self.dane[1], self.dane[2], self.dane[3])
         else:
             while self.dane[0] <= 4 or self.dane[0] >= 100 or self.dane[1] <= 4 or self.dane[1] >= 100:
-                self.dane[0] = input("Write width (from 5 to 100)")
-                self.dane[1] = input("Write width (from 5 to 100)")
+                self.dane[0] = int(input("Write width (from 5 to 100): "))
+                self.dane[1] = int(input("Write width (from 5 to 100): "))
             self.create_world(self.dane[0], self.dane[1], False, False)
 
 

@@ -30,52 +30,34 @@ class World:
             self.__human = Human([0, 0], self)
             self.__organisms.append(self.__human)
             self.__map.set_organism([0, 0], self.__human)
-            from .organisms.animals.Wolf import Wolf
-            from .organisms.animals.CyberSheep import CyberSheep
-            org = CyberSheep([self.__height - 1, self.__width - 1], self)
-            self.__organisms.append(org)
-            self.__map.set_organism([self.__height - 1, self.__width - 1], org)
-            from .organisms.plants.Hogweed import Hogweed
 
-            org3 = Hogweed([self.__height - 1, self.__width - 3], self)
-            self.__organisms.append(org3)
-            self.__map.set_organism([self.__height - 1, self.__width - 3], org3)
+            for i in range(self.__height):
+                for j in range(self.__width):
+                    if j % 4 == 1:
+                        #plant generate
+                        rand_pos = self.random_position()
+                        if rand_pos == [-1, -1]:
+                            continue
+                        from .organisms.Organisms import all_organisms
+                        org = all_organisms[(i + j) % 5]
 
-            org3 = Hogweed([self.__height - 2, self.__width - 5], self)
-            self.__organisms.append(org3)
-            self.__map.set_organism([self.__height - 2, self.__width - 5], org3)
-
-            org3 = Hogweed([self.__height - 5, self.__width - 4], self)
-            self.__organisms.append(org3)
-            self.__map.set_organism([self.__height - 5, self.__width - 4], org3)
-
-            # for i in range(self.__height):
-            #     for j in range(self.__width):
-            #         if j % 4 == 1:
-            #             #plant generate
-            #             rand_pos = self.random_position()
-            #             if rand_pos == [-1, -1]:
-            #                 continue
-            #             from src.world.organisms.Organisms import all_organisms
-            #             org = all_organisms[(i + j) % 5]
-            #
-            #             if org not in self.__organisms_in_game:
-            #                 self.__organisms_in_game.append(org)
-            #             new_org = org(rand_pos, self)
-            #             self.__map.set_organism(rand_pos, new_org)
-            #             self.__organisms.append(new_org)
-            #         elif j % 4 == 0:
-            #             # animal generate
-            #             rand_pos = self.random_position()
-            #             if rand_pos == [-1, -1]:
-            #                 continue
-            #             from src.world.organisms.Organisms import all_organisms
-            #             org = all_organisms[(i + j) % 5 + 6]
-            #             if org not in self.__organisms_in_game:
-            #                 self.__organisms_in_game.append(org)
-            #             new_org = org(rand_pos, self)
-            #             self.__map.set_organism(rand_pos, new_org)
-            #             self.__organisms.append(new_org)
+                        if org not in self.__organisms_in_game:
+                            self.__organisms_in_game.append(org)
+                        new_org = org(rand_pos, self)
+                        self.__map.set_organism(rand_pos, new_org)
+                        self.__organisms.append(new_org)
+                    elif j % 4 == 0:
+                        # animal generate
+                        rand_pos = self.random_position()
+                        if rand_pos == [-1, -1]:
+                            continue
+                        from .organisms.Organisms import all_organisms
+                        org = all_organisms[(i + j) % 6 + 5]
+                        if org not in self.__organisms_in_game:
+                            self.__organisms_in_game.append(org)
+                        new_org = org(rand_pos, self)
+                        self.__map.set_organism(rand_pos, new_org)
+                        self.__organisms.append(new_org)
         else:
             self.read_from_file()
 
@@ -90,7 +72,7 @@ class World:
         return [-1, -1]
 
     def read_from_file(self):
-        from src.world.organisms.Organisms import all_organisms
+        from .organisms.Organisms import all_organisms
         try:
             with open(self.__file_name, "r") as file:
                 for line in file:
@@ -191,6 +173,7 @@ class World:
                 if not org.get_has_moved() and org.get_is_alive():
                     org.set_has_moved(True)
                     org.action()
+                    self.draw_world()
             self.__turn_count += 1
 
         else:
@@ -211,7 +194,7 @@ class World:
                     elif org.get_name() == "Hogweed":
                         sym = "h"
                     elif org.get_name() == "Wolfberries":
-                        sym = "W"
+                        sym = "w"
                     elif org.get_name() == "CyberSheep":
                         sym = "C"
                     else:

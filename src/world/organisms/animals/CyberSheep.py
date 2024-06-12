@@ -1,8 +1,5 @@
 from .Animal import Animal
-from ..plants.Hogweed import Hogweed
 import random
-
-#from Sheep import Sheep
 
 class CyberSheep(Animal):
     def __init__(self, position, world, power=11, initiative=4, age=0):
@@ -24,6 +21,8 @@ class CyberSheep(Animal):
             super().action()
 
     def find_nearest_hogweed(self):
+        from ..plants.Hogweed import Hogweed
+
         current_position = self.get_position()
         cells_in_radius = self._world.check_cells_in_radius(current_position, 2)
         nearest_hogweed = None

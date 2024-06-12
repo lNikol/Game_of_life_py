@@ -10,6 +10,6 @@ class Wolfberries(Plant):
         return Wolfberries(position, self._world)
 
     def collision(self, org):
-        print(f"{self._name}: Organism ({org.get_name()}) ate me, and I kill it")
+        print(f"{self._name}: Organism ({org.get_name()}) ate me, and I killed it")
         self._world.delete_organism(org)
         self._world.delete_organism(self)

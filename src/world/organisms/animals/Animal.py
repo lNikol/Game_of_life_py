@@ -71,12 +71,14 @@ class Animal(Organism):
                             self.set_position(self._y, self._x, is_old=True)
                         else:
                             self._world.delete_organism(self)
+
         elif isinstance(org, Plant):
             org.collision(self)
-            if self._is_alive:
-                self._world.replace_organism([*self.get_old_position()], None)
-                self._world.replace_organism([*self.get_position()], self)
-                self.set_position(self._y, self._x, is_old=True)
+            self._world.replace_organism([*self.get_old_position()], None)
+            self._world.replace_organism([*self.get_position()], self)
+            self.set_position(self._y, self._x, is_old=True)
+            # lub tylko
+            # self.set_position(self._y, self._x, is_old=True)
         else:
             self._world.replace_organism([*self.get_position()], self)
             self._world.replace_organism([*self.get_old_position()], None)

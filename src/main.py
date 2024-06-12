@@ -4,7 +4,7 @@ from world.Game import Game
 
 def main():
     # w h is_hex
-    read_log_file = True
+    read_log_file = False
     w = 0
     h = 0
     is_hex = False

@@ -23,7 +23,6 @@ class Human(Animal):
         self.move_system()
         self._world.set_is_player_turn(False)
 
-
     def set_key(self, key):
         self.__last_key_pressed = key
         if key == 'o':

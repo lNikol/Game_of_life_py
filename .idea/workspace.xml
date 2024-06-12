@@ -6,21 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a8555d1a-7024-4732-a4d2-d0feddd6a911" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/log.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/Game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/World.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/World.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/Organism.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/Organism.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Antelope.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Antelope.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Animal.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Animal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/CyberSheep.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/CyberSheep.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Fox.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Fox.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Human.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Human.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Sheep.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Sheep.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Turtle.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Turtle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Wolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Wolf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Dandelion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Dandelion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Grass.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Grass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Guarana.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Guarana.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Hogweed.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Hogweed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Plant.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Plant.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Wolfberries.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Wolfberries.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +158,7 @@
       <workItem from="1718109164125" duration="1066000" />
       <workItem from="1718126771745" duration="10296000" />
       <workItem from="1718168744652" duration="5173000" />
-      <workItem from="1718177478407" duration="26440000" />
+      <workItem from="1718177478407" duration="29905000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -199,7 +193,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/world/World.py</url>
-          <line>279</line>
+          <line>262</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -209,28 +203,58 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/world/organisms/animals/Animal.py</url>
-          <line>74</line>
+          <line>75</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/world/World.py</url>
-          <line>78</line>
+          <line>60</line>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/world/World.py</url>
-          <line>79</line>
+          <line>61</line>
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/world/World.py</url>
-          <line>95</line>
+          <line>77</line>
           <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/world/World.py</url>
-          <line>107</line>
+          <line>89</line>
           <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/world/organisms/plants/Wolfberries.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/world/organisms/plants/Wolfberries.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/world/organisms/plants/Hogweed.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/world/organisms/plants/Hogweed.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/world/organisms/animals/Human.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/world/organisms/animals/Animal.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="128" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -255,7 +279,7 @@
     <SUITE FILE_PATH="coverage/Game_of_life_py$Antelope.coverage" NAME="Antelope Coverage Results" MODIFIED="1718135888631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
     <SUITE FILE_PATH="coverage/Game_of_life_py$Plant.coverage" NAME="Plant Coverage Results" MODIFIED="1718172648039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/plants" />
     <SUITE FILE_PATH="coverage/Game_of_life_py$Game.coverage" NAME="Game Coverage Results" MODIFIED="1718170955988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world" />
-    <SUITE FILE_PATH="coverage/Game_of_life_py$main.coverage" NAME="main Coverage Results" MODIFIED="1718217925157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$main.coverage" NAME="main Coverage Results" MODIFIED="1718221325811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Game_of_life_py$pydevd.coverage" NAME="pydevd Coverage Results" MODIFIED="1718131778512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/plugins/python/helpers/pydev" />
     <SUITE FILE_PATH="coverage/Game_of_life_py$organisms.coverage" NAME="organisms Coverage Results" MODIFIED="1718136442391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms" />
     <SUITE FILE_PATH="coverage/Game_of_life_py$Fox.coverage" NAME="Fox Coverage Results" MODIFIED="1718172567361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />

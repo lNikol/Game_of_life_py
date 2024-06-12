@@ -1,5 +1,19 @@
-World: height: 10, width: 10
-Human(y,x): (0, 2), power: 5, initiative: 4, age: 2
-CyberSheep(y,x): (9, 7), power: 11, initiative: 4, age: 2
-Hogweed(y,x): (8, 5), power: 10, initiative: 0, age: 2
-Hogweed(y,x): (5, 6), power: 10, initiative: 0, age: 2
+World: height: 6, width: 6
+Fox(y,x): (0, 2), power: 3, initiative: 7, age: 3
+Fox(y,x): (0, 3), power: 3, initiative: 7, age: 3
+CyberSheep(y,x): (1, 2), power: 11, initiative: 4, age: 3
+Sheep(y,x): (2, 3), power: 4, initiative: 4, age: 3
+CyberSheep(y,x): (2, 0), power: 11, initiative: 4, age: 3
+Antelope(y,x): (5, 2), power: 4, initiative: 4, age: 3
+Grass(y,x): (4, 1), power: 0, initiative: 0, age: 3
+Hogweed(y,x): (5, 4), power: 10, initiative: 0, age: 3
+Wolfberries(y,x): (0, 5), power: 99, initiative: 0, age: 3
+Guarana(y,x): (2, 4), power: 0, initiative: 0, age: 3
+Wolfberries(y,x): (5, 1), power: 99, initiative: 0, age: 3
+Guarana(y,x): (5, 3), power: 0, initiative: 0, age: 3
+Grass(y,x): (5, 0), power: 0, initiative: 0, age: 0
+Wolfberries(y,x): (1, 5), power: 99, initiative: 0, age: 0
+Dandelion(y,x): (4, 0), power: 0, initiative: 0, age: 0
+Dandelion(y,x): (3, 1), power: 0, initiative: 0, age: 0
+Wolfberries(y,x): (4, 2), power: 99, initiative: 0, age: 0
+Guarana(y,x): (4, 4), power: 0, initiative: 0, age: 0

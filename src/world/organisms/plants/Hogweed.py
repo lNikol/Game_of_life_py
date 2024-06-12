@@ -23,7 +23,7 @@ class Hogweed(Plant):
         self._world.delete_organism(self)
         if not isinstance(org, CyberSheep): # not isinstance(cell.get_org(), CyberSheep
             print("To nie cyberowca")
-            print(f"{self._name}: Organism ({org.get_name()}) ate me, and I kill it")
+            print(f"{self._name}: Organism ({org.get_name()}) ate me, and I killed it")
             self._world.delete_organism(org)
         else:
             print(f"{self._name}: Organism ({org.get_name()}) ate me, and I didn't kill it")
