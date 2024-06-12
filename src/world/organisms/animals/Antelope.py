@@ -5,7 +5,7 @@ import random
 class Antelope(Animal):
     def __init__(self, position, world, age=0):
         super().__init__("Antelope", position[0], position[1], 4, 4, world, age)
-        print(f"Antelope ({self._y}, {self._x}) was created\n")
+        print(f"Antelope ({self._y}, {self._x}) was created")
 
     def copy(self, position):
         return Antelope(position, self._world)

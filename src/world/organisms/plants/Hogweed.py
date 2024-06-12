@@ -1,5 +1,5 @@
 from .Plant import Plant
-from src.world.organisms.animals.Animal import Animal
+from ..animals.Animal import Animal
 
 
 class Hogweed(Plant):
@@ -12,14 +12,18 @@ class Hogweed(Plant):
 
     def action(self):
         neighbors = self._world.check_cells_around(self.get_position(), False)
+        from ..animals.CyberSheep import CyberSheep
         for cell in neighbors:
-            from ..animals.CyberSheep import CyberSheep
             if isinstance(cell.get_org(), Animal) and not isinstance(cell.get_org(), CyberSheep):
-                self._world.delete_organism(cell.get_org())
+                    print(f"{self._name}: I killed {cell.get_org().get_name()} at {cell.get_position()}")
+                    self._world.delete_organism(cell.get_org())
 
     def collision(self, org):
-        print(f"{self._name}: Organism ({org.get_name()}) ate me, and I kill it")
-        from src.world.organisms.animals.CyberSheep import CyberSheep
-        if not isinstance(org, CyberSheep):
+        from ..animals.CyberSheep import CyberSheep
+        self._world.delete_organism(self)
+        if not isinstance(org, CyberSheep): # not isinstance(cell.get_org(), CyberSheep
+            print("To nie cyberowca")
+            print(f"{self._name}: Organism ({org.get_name()}) ate me, and I kill it")
             self._world.delete_organism(org)
-            self._world.delete_organism(self)
+        else:
+            print(f"{self._name}: Organism ({org.get_name()}) ate me, and I didn't kill it")

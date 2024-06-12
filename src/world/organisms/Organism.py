@@ -71,15 +71,15 @@ class Organism(ABC):
 
     def write_to_log(self):
         return (f"{self._name}(y,x): ({self._y}, {self._x}), "
-                f"power: {self._power}, initiative: {self._initiative}, age: {self._age}\n")
+                f"power: {self._power}, initiative: {self._initiative}, age: {self._age}")
 
     def check_reproduction(self):
         neighbors = self._world.check_cells_around(self.get_position(), False)
         empty_place = -1
         similar_neighbors = 0
         for index, neighbor in enumerate(neighbors):
-            if neighbor.get_org() is not None and isinstance(neighbor.get_org(), self):
-                similar_neighbors += 1
+            if neighbor.get_org() is not None and type(neighbor.get_org()) == type(self):
+                    similar_neighbors += 1
             elif neighbor.get_org() is None:
                 empty_place = index
 
@@ -87,7 +87,7 @@ class Organism(ABC):
             self._world.delete_organism(self)
             return False
         elif empty_place != -1 and neighbors[empty_place].get_position()[0] != -1:
-            self._world.set_organism(self, neighbors[empty_place].get_position())
+            self._world.set_organism([*neighbors[empty_place].get_position()], self)
             return True
         else:
             return False

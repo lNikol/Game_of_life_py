@@ -20,7 +20,7 @@ class Game(tk.Tk):
 
     def start_turn(self):
         #if self.__world.get_key() != ' ':
-        print(f"\n\n\n\nTurn: {self.__world.get_turn_count()}")
+        print(f"\n\n\nTurn: {self.__world.get_turn_count()}")
         self.__world.take_a_turn()
         #self.__world.set_key(' ')
         #self.__world.set_key_pressed(False)

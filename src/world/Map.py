@@ -22,7 +22,7 @@ class Map:
     def delete_organism(self, old_org):
         if old_org is None:
             return
-        from src.world.organisms.animals.Animal import Animal
+        from .organisms.animals.Animal import Animal
         if isinstance(old_org, Animal):
             if old_org.get_is_alive():
                 old_pos = old_org.get_position()

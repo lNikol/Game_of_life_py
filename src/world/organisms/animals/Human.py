@@ -1,6 +1,5 @@
 from .Animal import Animal
 import random
-from pynput import keyboard
 
 
 class Human(Animal):
@@ -12,25 +11,17 @@ class Human(Animal):
         self.__last_key_pressed = ' '
         self.__counter_after_ability = 0
         self.__ability_counter = -1
-        print(f"Human ({self._y},{self._x}) was created\n")
-        self.listener = None
+        print(f"Human ({self._y},{self._x}) was created")
 
     def copy(self, position):
         return Human(position, self._world)
 
     def action(self):
-        print("\n\nYour turn\n\n")
+        print("\n\nYour turn\n")
         self._world.set_is_player_turn(True)
-        self.listener = keyboard.Listener(
-            on_press=self.on_press,
-            on_release=self.on_release
-        )
-        self.listener.start()
-        self.listener.join()
-        self.listener.stop()  # Stop the listener after action is completed
+        self.set_key(input("Wpisz symbol (wasd): "))
         self.move_system()
         self._world.set_is_player_turn(False)
-        self.listener = None
 
 
     def set_key(self, key):
@@ -67,9 +58,11 @@ class Human(Animal):
                     print("The ability cannot be activated")
 
     def move_system(self):
+        s = f"{self._name} ({self._y}, {self._x} -> "
+
         if not self._world.get_is_hex():
             if self.__last_key_pressed == 'w':
-                if self._y >= 1 and self._y < self._world.height:
+                if self._y >= 1 and self._y < self._world.get_height():
                     self.set_ability_active()
                     if self.__is_ability_on and self.__is_ability_active:
                         if self._y - 2 >= 0:
@@ -132,31 +125,9 @@ class Human(Animal):
                     self._world.set_is_player_turn(False)
                 else:
                     print("You cannot move to the right")
+
         else:
             # Implementacja ruchów dla szachownicy heksagonalnej
             pass
-
-    def on_press(self, key):
-        if self._world.get_is_player_turn():
-            try:
-                if key.char == 'w':
-                    print("tutaj w")
-                    self.set_key('w')
-                elif key.char == 's':
-                    print("tutaj s")
-                    self.set_key('s')
-                elif key.char == 'a':
-                    print("tutaj a")
-                    self.set_key('a')
-                elif key.char == 'd':
-                    print("tutaj d")
-                    self.set_key('d')
-                elif key.char == 'o':
-                    print("tutaj o")
-                    self.set_key('o')
-
-            except AttributeError:
-                pass
-
-    def on_release(self, key):
-        return False
+        s += f"{self._y}, {self._x})"
+        print(s)

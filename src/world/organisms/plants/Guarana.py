@@ -4,7 +4,7 @@ from .Plant import Plant
 class Guarana(Plant):
     def __init__(self, position, world, age=0):
         super().__init__("Guarana", position[0], position[1], 0, 0, world, age)
-        print(f"Guarana ({self._y}, {self._x}) was created\n")
+        print(f"Guarana ({self._y}, {self._x}) was created")
 
     def copy(self, position):
         return Guarana(position, self._world)

@@ -33,34 +33,52 @@ class World:
             self.__human = Human([0, 0], self)
             self.__organisms.append(self.__human)
             self.__map.set_organism([0, 0], self.__human)
+            from .organisms.animals.Wolf import Wolf
+            from .organisms.animals.CyberSheep import CyberSheep
+            org = CyberSheep([self.__height - 1, self.__width - 1], self)
+            self.__organisms.append(org)
+            self.__map.set_organism([self.__height - 1, self.__width - 1], org)
+            from .organisms.plants.Hogweed import Hogweed
 
-            for i in range(self.__height):
-                for j in range(self.__width):
-                    if j % 4 == 1:
-                        #plant generate
-                        rand_pos = self.random_position()
-                        if rand_pos == [-1, -1]:
-                            continue
-                        from src.world.organisms.Organisms import all_organisms
-                        org = all_organisms[(i + j) % 5]
+            org3 = Hogweed([self.__height - 1, self.__width - 3], self)
+            self.__organisms.append(org3)
+            self.__map.set_organism([self.__height - 1, self.__width - 3], org3)
 
-                        if org not in self.__organisms_in_game:
-                            self.__organisms_in_game.append(org)
-                        new_org = org(rand_pos, self)
-                        self.__map.set_organism(rand_pos, new_org)
-                        self.__organisms.append(new_org)
-                    elif j % 4 == 0:
-                        # animal generate
-                        rand_pos = self.random_position()
-                        if rand_pos == [-1, -1]:
-                            continue
-                        from src.world.organisms.Organisms import all_organisms
-                        org = all_organisms[(i + j) % 5 + 6]
-                        if org not in self.__organisms_in_game:
-                            self.__organisms_in_game.append(org)
-                        new_org = org(rand_pos, self)
-                        self.__map.set_organism(rand_pos, new_org)
-                        self.__organisms.append(new_org)
+            org3 = Hogweed([self.__height - 2, self.__width - 5], self)
+            self.__organisms.append(org3)
+            self.__map.set_organism([self.__height - 2, self.__width - 5], org3)
+
+            org3 = Hogweed([self.__height - 5, self.__width - 4], self)
+            self.__organisms.append(org3)
+            self.__map.set_organism([self.__height - 5, self.__width - 4], org3)
+
+            # for i in range(self.__height):
+            #     for j in range(self.__width):
+            #         if j % 4 == 1:
+            #             #plant generate
+            #             rand_pos = self.random_position()
+            #             if rand_pos == [-1, -1]:
+            #                 continue
+            #             from src.world.organisms.Organisms import all_organisms
+            #             org = all_organisms[(i + j) % 5]
+            #
+            #             if org not in self.__organisms_in_game:
+            #                 self.__organisms_in_game.append(org)
+            #             new_org = org(rand_pos, self)
+            #             self.__map.set_organism(rand_pos, new_org)
+            #             self.__organisms.append(new_org)
+            #         elif j % 4 == 0:
+            #             # animal generate
+            #             rand_pos = self.random_position()
+            #             if rand_pos == [-1, -1]:
+            #                 continue
+            #             from src.world.organisms.Organisms import all_organisms
+            #             org = all_organisms[(i + j) % 5 + 6]
+            #             if org not in self.__organisms_in_game:
+            #                 self.__organisms_in_game.append(org)
+            #             new_org = org(rand_pos, self)
+            #             self.__map.set_organism(rand_pos, new_org)
+            #             self.__organisms.append(new_org)
 
     def random_position(self):
         counter = 0
@@ -170,12 +188,13 @@ class World:
                 org.set_age(org.get_age() + 1)
                 org.set_has_moved(False)
             self.update_organisms()
+            self.draw_world()
             for org in self.__organisms:
                 if not org.get_has_moved() and org.get_is_alive():
-                    self.__turn_count += 1
                     org.set_has_moved(True)
                     org.action()
-                    #self.update_world()
+            self.__turn_count += 1
+
         else:
             print("\n\nYou have died\n\n")
             return False
@@ -261,7 +280,7 @@ class World:
         if self.__map.get_cell(position).get_org() is None:
             child = org.copy(position)
             self.__organisms.append(child)
-            self.__map.set_organism(position, child)
+            self.__map.set_organism([*position], child)
             return True
         else:
             print("setOrganism in World: Cannot set organism, the place by (y,x)", position[0], ",", position[1],
@@ -468,3 +487,20 @@ class World:
                             y += 1
 
             return [y, x]
+
+    def check_cells_in_radius(self, position, radius):
+        cells = []
+        x, y = position
+        for dx in range(-radius, radius + 1):
+            for dy in range(-radius, radius + 1):
+                if dx != 0 or dy != 0:
+                    neighbor_position = (x + dx, y + dy)
+                    if self.is_position_valid(neighbor_position):
+                        cells.append(self.get_cell(neighbor_position))
+        return cells
+
+    def is_position_valid(self, position):
+        from .organisms.plants.Hogweed import Hogweed
+        x, y = position
+        return 0 <= x < self.__width and 0 <= y < self.__height and (isinstance(self.get_cell(position).get_org(), Hogweed) or self.get_cell(position).get_org() is None)
+
