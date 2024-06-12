@@ -1,23 +1,7 @@
 from abc import ABC, abstractmethod
-from src.world.organisms.plants import *
-from src.world.organisms.animals import *
 
 
 class Organism(ABC):
-    organisms = [
-        Guarana,
-        Hogweed,
-        Grass,
-        Dandelion,
-        Wolf,
-        Fox,
-        CyberSheep,
-        Sheep,
-        Turtle,
-        Antelope,
-        Human
-    ]
-
     def __init__(self, name="", y=-1, x=-1, power=-1, initiative=-1, world=None, age=0):
         self.__name = name
         self.__y = y

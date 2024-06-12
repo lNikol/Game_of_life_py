@@ -2,7 +2,6 @@ import random
 from abc import ABC
 
 from src.world.organisms.Organism import Organism
-from src.world.organisms.animals.Animal import Animal
 
 
 class Plant(Organism, ABC):
@@ -20,5 +19,6 @@ class Plant(Organism, ABC):
     def collision(self, org):
         self.__world.delete_organism(self)
         self.__world.replace_organism(org.get_position(), org)
+        from src.world.organisms.animals import Animal
         if isinstance(org, Animal):
             self.__world.replace_organism(org.get_old_position(), None)

@@ -1,6 +1,6 @@
 from .Animal import Animal
 from src.world.organisms.plants.Hogweed import Hogweed
-
+#from Sheep import Sheep
 
 class CyberSheep(Animal):
     def __init__(self, position, world, age=0):

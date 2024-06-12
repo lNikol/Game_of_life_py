@@ -1,7 +1,6 @@
 from abc import abstractmethod
 from src.world.organisms.Organism import Organism
 from src.world.organisms.plants.Plant import Plant
-from .Antelope import Antelope
 
 
 class Animal(Organism):
@@ -47,6 +46,7 @@ class Animal(Organism):
                     org.reproduction()
                 self.set_position(self._old_y, self._old_x, is_old=False)
             else:
+                from Antelope import Antelope
                 if isinstance(org, Antelope):
                     org.collision(self)
                     if self.__is_alive:

@@ -5,27 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8555d1a-7024-4732-a4d2-d0feddd6a911" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/src/world/organisms/Organisms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/Cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/Cell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/Game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/Map.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/Map.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/World.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/World.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/organisms/Organism.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/Organism.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Animal.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Animal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Antelope.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Antelope.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/CyberSheep.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/CyberSheep.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Fox.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Fox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Human.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Human.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Sheep.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Sheep.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Turtle.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Turtle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Wolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/Wolf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/animals/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Dandelion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Dandelion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Grass.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Grass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Guarana.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Guarana.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/CyberSheep.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Fox.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Human.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Sheep.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Turtle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/Wolf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/animals/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Hogweed.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Hogweed.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Plant.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Plant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/Wolfberries.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/Wolfberries.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/organisms/plants/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/organisms/plants/__init__.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,17 +53,32 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.Animal.executor": "Debug",
+    "Python.Animal.executor": "Run",
+    "Python.Antelope.executor": "Run",
     "Python.Cell.executor": "Run",
+    "Python.CyberSheep.executor": "Run",
+    "Python.Dandelion.executor": "Run",
+    "Python.Fox.executor": "Debug",
+    "Python.Game.executor": "Run",
+    "Python.Grass.executor": "Run",
     "Python.Guarana.executor": "Run",
     "Python.Human.executor": "Run",
+    "Python.Map.executor": "Run",
     "Python.Organism.executor": "Debug",
-    "Python.Plant.executor": "Debug",
+    "Python.Organisms.executor": "Debug",
+    "Python.Plant.executor": "Run",
+    "Python.Sheep.executor": "Run",
+    "Python.Turtle.executor": "Run",
+    "Python.Wolf.executor": "Run",
     "Python.Wolfberries.executor": "Run",
+    "Python.World.executor": "Run",
     "Python.__init__.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.organisms.executor": "Run",
+    "Python.pydevd.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "E:/Programming/Python/Game_of_life_py/src/main.py",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,10 +90,61 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Programming\Python\Game_of_life_py\src\world\organisms\plants" />
       <recent name="E:\Programming\Python\Game_of_life_py\src" />
       <recent name="E:\Programming\Python\Game_of_life_py" />
       <recent name="E:\Programming\Python\Game_of_life_py\world" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="Game_of_life_py" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (Game_of_life_py)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Game_of_life_py" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (Game_of_life_py)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -100,7 +164,8 @@
       <updated>1717948716014</updated>
       <workItem from="1717948717391" duration="9248000" />
       <workItem from="1718109164125" duration="1066000" />
-      <workItem from="1718126771745" duration="4676000" />
+      <workItem from="1718126771745" duration="10296000" />
+      <workItem from="1718168744652" duration="5086000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -124,14 +189,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/world/organisms/animals/Antelope.py</url>
-          <line>23</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/world/organisms/animals/Human.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/world/organisms/Organism.py</url>
-          <line>96</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/main.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/world/World.py</url>
+          <line>63</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -144,14 +214,28 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Game_of_life_py$Guarana.coverage" NAME="Guarana Coverage Results" MODIFIED="1718131246178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/plants" />
-    <SUITE FILE_PATH="coverage/Game_of_life_py$main.coverage" NAME="main Coverage Results" MODIFIED="1717949671054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Game_of_life_py$Human.coverage" NAME="Human Coverage Results" MODIFIED="1718130086612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
-    <SUITE FILE_PATH="coverage/Game_of_life_py$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1718131287078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Guarana.coverage" NAME="Guarana Coverage Results" MODIFIED="1718135804627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/plants" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Sheep.coverage" NAME="Sheep Coverage Results" MODIFIED="1718136168916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Wolf.coverage" NAME="Wolf Coverage Results" MODIFIED="1718137833540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Map.coverage" NAME="Map Coverage Results" MODIFIED="1718173189820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1718135776892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/plants" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Turtle.coverage" NAME="Turtle Coverage Results" MODIFIED="1718136172046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
     <SUITE FILE_PATH="coverage/Game_of_life_py$Cell.coverage" NAME="Cell Coverage Results" MODIFIED="1717957539278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world" />
-    <SUITE FILE_PATH="coverage/Game_of_life_py$Animal.coverage" NAME="Animal Coverage Results" MODIFIED="1718131641858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
-    <SUITE FILE_PATH="coverage/Game_of_life_py$Wolfberries.coverage" NAME="Wolfberries Coverage Results" MODIFIED="1718130843470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/plants" />
-    <SUITE FILE_PATH="coverage/Game_of_life_py$Organism.coverage" NAME="Organism Coverage Results" MODIFIED="1718131619309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms" />
-    <SUITE FILE_PATH="coverage/Game_of_life_py$Plant.coverage" NAME="Plant Coverage Results" MODIFIED="1718131734908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/plants" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$World.coverage" NAME="World Coverage Results" MODIFIED="1718173245976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Animal.coverage" NAME="Animal Coverage Results" MODIFIED="1718170788979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Antelope.coverage" NAME="Antelope Coverage Results" MODIFIED="1718135888631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Plant.coverage" NAME="Plant Coverage Results" MODIFIED="1718172648039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/plants" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Game.coverage" NAME="Game Coverage Results" MODIFIED="1718170955988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$main.coverage" NAME="main Coverage Results" MODIFIED="1718173847938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$pydevd.coverage" NAME="pydevd Coverage Results" MODIFIED="1718131778512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/plugins/python/helpers/pydev" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$organisms.coverage" NAME="organisms Coverage Results" MODIFIED="1718136442391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Fox.coverage" NAME="Fox Coverage Results" MODIFIED="1718172567361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Grass.coverage" NAME="Grass Coverage Results" MODIFIED="1718135801148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/plants" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Human.coverage" NAME="Human Coverage Results" MODIFIED="1718136164535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Organisms.coverage" NAME="Organisms Coverage Results" MODIFIED="1718172667645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$CyberSheep.coverage" NAME="CyberSheep Coverage Results" MODIFIED="1718136208381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/animals" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Dandelion.coverage" NAME="Dandelion Coverage Results" MODIFIED="1718135792200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/plants" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Wolfberries.coverage" NAME="Wolfberries Coverage Results" MODIFIED="1718135875738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms/plants" />
+    <SUITE FILE_PATH="coverage/Game_of_life_py$Organism.coverage" NAME="Organism Coverage Results" MODIFIED="1718135450685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/world/organisms" />
   </component>
 </project>

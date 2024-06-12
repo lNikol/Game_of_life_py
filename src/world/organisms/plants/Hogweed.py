@@ -1,6 +1,5 @@
 from .Plant import Plant
 from src.world.organisms.animals.Animal import Animal
-from src.world.organisms.animals.CyberSheep import CyberSheep
 
 
 class Hogweed(Plant):
@@ -19,6 +18,7 @@ class Hogweed(Plant):
 
     def collision(self, org):
         print(f"{self.__name}: Organism ({org.get_name()}) ate me, and I kill it")
+        from src.world.organisms.animals.CyberSheep import CyberSheep
         if not isinstance(org, CyberSheep):
             self.__world.delete_organism(org)
             self.__world.delete_organism(self)
