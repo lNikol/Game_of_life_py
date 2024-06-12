@@ -259,8 +259,13 @@ class World:
     def get_key(self):
         return self.__human.get_key()
 
+    def append_org(self, org):
+        self.__organisms.append(org)
+
     def set_organism(self, position, org):
         if self.__map.get_cell(position).get_org() is None:
+            print(org)
+            print(f"pos: {position}")
             child = org.copy(position)
             self.__organisms.append(child)
             self.__map.set_organism([*position], child)
