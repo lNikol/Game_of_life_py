@@ -18,7 +18,7 @@ class Plant(Organism, ABC):
 
     def collision(self, org):
         self._world.delete_organism(self)
-        self._world.replace_organism(org.get_position(), org)
-        from src.world.organisms.animals import Animal
+        self._world.replace_organism([*org.get_position()], org)
+        from src.world.organisms.animals.Animal import Animal
         if isinstance(org, Animal):
-            self._world.replace_organism(org.get_old_position(), None)
+            self._world.replace_organism([*org.get_old_position()], None)

@@ -13,5 +13,5 @@ class Guarana(Plant):
         print(f"{self._name}: Organism ({org.get_name()}) ate me, and I boost its power")
         org.set_power(org.get_power() + 3)
         self._world.delete_organism(self)
-        self._world.replace_organism(org.get_old_position(), None)
-        self._world.replace_organism(org.get_position(), org)
+        self._world.replace_organism([*org.get_old_position()], None)
+        self._world.replace_organism([*org.get_position()], org)

@@ -35,7 +35,7 @@ class Animal(Organism):
 
     def action(self):
         self.move()
-        cell = self._world.get_cell(*self.get_position())
+        cell = self._world.get_cell(self.get_position())
         if cell:
             self.collision(cell.get_org())
 
@@ -46,12 +46,12 @@ class Animal(Organism):
                     org.reproduction()
                 self.set_position(self._old_y, self._old_x, is_old=False)
             else:
-                from Antelope import Antelope
+                from .Antelope import Antelope
                 if isinstance(org, Antelope):
                     org.collision(self)
                     if self._is_alive:
-                        self._world.replace_organism(self.get_position(), self)
-                        self._world.replace_organism(self._old_y, self._old_x, None)
+                        self._world.replace_organism([*self.get_position()], self)
+                        self._world.replace_organism([self._old_y, self._old_x], None)
                         self.set_position(self._old_y, self._old_x, is_old=True)
                     else:
                         self._world.delete_organism(self)
@@ -63,8 +63,8 @@ class Animal(Organism):
                         if self._power >= org.get_power():
                             new_y, new_x = org.get_position()
                             self._world.delete_organism(org)
-                            self._world.replace_organism(self.get_old_position(), None)
-                            self._world.replace_organism((new_y, new_x), self)
+                            self._world.replace_organism([*self.get_old_position()], None)
+                            self._world.replace_organism([new_y, new_x], self)
                             self.set_position(self._old_y, self._old_x, is_old=True)
                         else:
                             self._world.delete_organism(self)
@@ -72,6 +72,6 @@ class Animal(Organism):
             org.collision(self)
             self.set_position(self._old_y, self._old_x, is_old=True)
         else:
-            self._world.replace_organism(self.get_position(), self)
-            self._world.replace_organism(self.get_old_position(), None)
+            self._world.replace_organism([*self.get_position()], self)
+            self._world.replace_organism([*self.get_old_position()], None)
             self.set_position(self._old_y, self._old_x, is_old=True)

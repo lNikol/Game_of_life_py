@@ -31,7 +31,7 @@ class Map:
         else:
             old_pos = old_org.get_position()
 
-        self.replace_organism(old_pos, None)
+        self.replace_organism([*old_pos], None)
 
     def get_cell(self, position):
         return self.__map[position[0]][position[1]]

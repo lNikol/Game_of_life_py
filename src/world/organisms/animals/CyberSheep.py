@@ -11,10 +11,11 @@ class CyberSheep(Animal):
         return CyberSheep(position, self._world)
 
     def find_hogweed(self):
-        return None
+        return [-1, -1]
+
 
     def move_to_hogweed(self):
-        return None
+        pass
 
     def action(self):
         y, x = self.find_hogweed()

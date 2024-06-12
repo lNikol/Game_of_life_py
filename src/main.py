@@ -3,7 +3,7 @@ from world.Game import Game
 
 def main():
     # w h is_hex
-    dane = [7, 7, False, False]
+    dane = [8, 8, False, False]
     # form = MainForm()
     # form.update()  # This ensures the form is ready to accept user input
     game = None

@@ -47,8 +47,8 @@ class Organism(ABC):
     def get_has_moved(self):
         return self._has_moved
 
-    def set_has_moved(self, hasMoved):
-        self._has_moved = hasMoved
+    def set_has_moved(self, has_moved):
+        self._has_moved = has_moved
         return None
 
     def get_is_alive(self):
@@ -86,8 +86,8 @@ class Organism(ABC):
         if similar_neighbors >= 2:
             self._world.delete_organism(self)
             return False
-        elif empty_place != -1 and neighbors[empty_place].get_pos()[0] != -1:
-            self._world.set_organism(self, neighbors[empty_place].get_pos())
+        elif empty_place != -1 and neighbors[empty_place].get_position()[0] != -1:
+            self._world.set_organism(self, neighbors[empty_place].get_position())
             return True
         else:
             return False

@@ -10,12 +10,12 @@ class Fox(Animal):
         return Fox(position, self._world)
 
     def action(self):
-        pos = self._world.check_cells_around(self.get_position(), False)
+        pos = self._world.check_cells_around([*self.get_position()], False)
         for cell in pos:
             if cell is not None and cell.get_position()[0] == -1:
                 return
             if cell.get_org() is None or (cell.get_org() is not None and self._power >= cell.get_org().get_power()):
-                self.set_position(*(cell.get_pos()), False)
+                self.set_position(*(cell.get_position()), False)
                 super().collision(cell.get_org())
                 return
 

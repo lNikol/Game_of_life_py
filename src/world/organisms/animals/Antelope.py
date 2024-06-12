@@ -13,7 +13,7 @@ class Antelope(Animal):
     def action(self):
         y, x = self._world.new_position(self, 2)
         self.set_position(y, x, False)
-        super().collision(self._world.get_cell([y, x]).org)
+        super().collision(self._world.get_cell([y, x]).get_org())
 
     def rebound_attack(self, org):
         return False
@@ -21,11 +21,11 @@ class Antelope(Animal):
     def collision(self, other):
         if other:
             if random.random() > 0.5:
-                neighbors = self._world.check_cells_around(*self.get_position(), False)
+                neighbors = self._world.check_cells_around([*self.get_position()], False)
                 for neighbor in neighbors:
-                    if not neighbor.org:
+                    if not neighbor.get_org():
                         self.set_position(*neighbor.get_position(), False)
-                        super().collision(neighbor.org)
+                        super().collision(neighbor.get_org())
                         return
                 super().collision(other)
             else:

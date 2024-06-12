@@ -55,7 +55,7 @@ class Human(Animal):
                     print("The ability cannot be activated")
 
     def move_system(self):
-        if not self._world.is_hex:
+        if not self._world.get_is_hex():
             if self.__last_key_pressed == 'w':
                 if self._y >= 1 and self._y < self._world.height:
                     self.set_ability_active()
@@ -68,7 +68,7 @@ class Human(Animal):
                                 "You cannot move two squares (you will move one square) because there is a border there \n")
                     else:
                         self._y -= 1
-                    self.collision(self._world.get_cell(self.get_position()).org)
+                    self.collision(self._world.get_cell(self.get_position()).get_org())
                     self._world.set_is_player_turn(False)
                 else:
                     print("You cannot move to the top")
@@ -84,7 +84,7 @@ class Human(Animal):
                                 "You cannot move two squares (you will move one square) because there is a border there \n")
                     else:
                         self._y += 1
-                    self.collision(self._world.get_cell(self.get_position()).org)
+                    self.collision(self._world.get_cell([*self.get_position()]).get_org())
                     self._world.set_is_player_turn(False)
                 else:
                     print("You cannot move to the bottom")
@@ -100,7 +100,7 @@ class Human(Animal):
                                 "You cannot move two squares (you will move one square) because there is a border there \n")
                     else:
                         self._x -= 1
-                    self.collision(self._world.get_cell(self.get_position()).org)
+                    self.collision(self._world.get_cell([*self.get_position()]).get_org())
                     self._world.set_is_player_turn(False)
                 else:
                     print("You cannot move to the left")
@@ -116,7 +116,7 @@ class Human(Animal):
                                 "You cannot move two squares (you will move one square) because there is a border there \n")
                     else:
                         self._x += 1
-                    self.collision(self._world.get_cell(self.get_position()).org)
+                    self.collision(self._world.get_cell([*self.get_position()]).get_org())
                     self._world.set_is_player_turn(False)
                 else:
                     print("You cannot move to the right")

@@ -6,13 +6,13 @@ class Cell:
         self.__x = x
         self.__hexagon = None
 
-    def set_org(self, organism):
+    def set_org(self, organism, is_hex=False):
         self.__org = organism
         if self.__is_hex:
             size = 40
         return None
 
-    def get_pos(self):
+    def get_position(self):
         return self.__y, self.__x
 
     def get_org(self):

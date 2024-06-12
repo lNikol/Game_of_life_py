@@ -15,7 +15,6 @@ class World:
         self.__map = Map(width, height, self)
         self.__organisms = []
         self.__organisms_in_game = []
-        self.__children = []
         self.__human = None
         self.__human_is_alive = True
         self.__is_player_turn = False
@@ -154,11 +153,6 @@ class World:
         return to_save
 
     def update_organisms(self):
-        children_size = len(self.__children)
-        for i in range(children_size):
-            if self.__children[i] is not None:
-                self.__organisms.append(self.__children[i])
-        self.__children.clear()
 
         i = len(self.__organisms) - 1
         while i >= 0:
@@ -190,7 +184,7 @@ class World:
         s = ""
         for i in range(self.__height):
             for j in range(self.__width):
-                org = self.__map.get_cell(i, j).org
+                org = self.__map.get_cell([i, j]).get_org()
                 if org is None:
                     s += " . "
                 else:
@@ -238,12 +232,12 @@ class World:
         self.__map.replace_organism(position, new_org)
 
     def delete_organism(self, old_org):
-        print(f"old_org: {old_org}")
         if old_org is None:
             return
         old_org.set_is_alive(False)
         self.__map.delete_organism(old_org)
-        self.__children.remove(old_org)
+        if old_org in self.__organisms:
+            self.__organisms.remove(old_org)
 
     def set_is_player_turn(self, is_player_turn):
         self.__is_player_turn = is_player_turn
@@ -264,9 +258,9 @@ class World:
         return self.__human.get_key()
 
     def set_organism(self, position, org):
-        if self.__map.get_cell(position).org is None:
+        if self.__map.get_cell(position).get_org() is None:
             child = org.copy(position)
-            self.__children.append(child)
+            self.__organisms.append(child)
             self.__map.set_organism(position, child)
             return True
         else:
@@ -280,6 +274,8 @@ class World:
     def get_is_hex(self):
         return self.__is_hex
 
+    def get_cell(self, position):
+        return self.__map.get_cell(position)
     def get_human_is_alive(self):
         return self.__human_is_alive
 
@@ -297,3 +293,175 @@ class World:
 
     def get_turn_count(self):
         return self.__turn_count
+
+    def new_position(self, org, dist):
+            w = self.__width - 1
+            h = self.__height - 1
+            pos = org.get_position()
+            y, x = pos
+
+            if not self.__is_hex:
+                if y == 0:
+                    if x == 0:
+                        direction = random.randint(1, 2)
+                        if direction == 1:
+                            x += dist  # right
+                        elif direction == 2:
+                            x += dist  # right-down
+                            y += dist
+                    elif x == w:
+                        direction = random.randint(1, 4)
+                        if direction == 1:
+                            y += dist  # down
+                        elif direction == 2:
+                            x -= dist  # left
+                        elif direction == 3:
+                            x -= dist  # left-down
+                            y += dist
+                    else:
+                        direction = random.randint(1, 5)
+                        if direction == 1:
+                            y += dist  # down
+                        elif direction == 2:
+                            x = x + dist if x + dist <= w else x + 1  # right
+                        elif direction == 3:
+                            x = x - dist if x - dist >= 0 else x - 1  # left
+                        elif direction == 4:
+                            if x - dist >= 0:
+                                x -= dist
+                                y += dist  # left-down
+                            else:
+                                x -= 1
+                                y += 1
+                        elif direction == 5:
+                            if x + dist <= w:
+                                x += dist
+                                y += dist  # right-down
+                            else:
+                                x += 1
+                                y += 1
+                elif y == h:
+                    if x == 0:
+                        direction = random.randint(1, 3)
+                        if direction == 1:
+                            y -= dist  # top
+                        elif direction == 2:
+                            x += dist  # right
+                        elif direction == 3:
+                            x += dist  # right-top
+                            y -= dist
+                    elif x == w:
+                        direction = random.randint(1, 3)
+                        if direction == 1:
+                            y -= dist  # top
+                        elif direction == 2:
+                            x -= dist  # left
+                        elif direction == 3:
+                            x -= dist  # left-top
+                            y -= dist
+                    else:
+                        direction = random.randint(1, 5)
+                        if direction == 1:
+                            y -= dist  # top
+                        elif direction == 2:
+                            x = x - dist if x - dist >= 0 else x - 1  # left
+                        elif direction == 3:
+                            x = x + dist if x + dist <= w else x + 1  # right
+                        elif direction == 4:
+                            if x + dist <= w:
+                                x += dist
+                                y -= dist  # right-top
+                            else:
+                                x += 1
+                                y -= 1
+                        elif direction == 5:
+                            if x - dist >= 0:
+                                x -= dist
+                                y -= dist  # left-top
+                            else:
+                                x -= 1
+                                y -= 1
+                elif x == w and 1 <= y < h:
+                    direction = random.randint(1, 5)
+                    if direction == 1:
+                        y = y + dist if y + dist <= h else y + 1  # down
+                    elif direction == 2:
+                        y = y - dist if y - dist >= 0 else y - 1  # top
+                    elif direction == 3:
+                        x -= dist  # left
+                    elif direction == 4:
+                        if y - dist >= 0:
+                            x -= dist
+                            y -= dist  # left-top
+                        else:
+                            x -= 1
+                            y -= 1
+                    elif direction == 5:
+                        if y + dist <= h:
+                            x -= dist
+                            y += dist  # left-down
+                        else:
+                            x -= 1
+                            y += 1
+                elif x == 0 and 1 <= y < h:
+                    direction = random.randint(1, 5)
+                    if direction == 1:
+                        y = y + dist if y + dist <= h else y + 1  # down
+                    elif direction == 2:
+                        y = y - dist if y - dist >= 0 else y - 1  # top
+                    elif direction == 3:
+                        x += dist  # right
+                    elif direction == 4:
+                        if y - dist >= 0:
+                            x += dist
+                            y -= dist  # right-top
+                        else:
+                            x += 1
+                            y -= 1
+                    elif direction == 5:
+                        if y + dist <= h:
+                            x += dist
+                            y += dist  # right-down
+                        else:
+                            x += 1
+                            y += 1
+                else:
+                    direction = random.randint(1, 8)
+                    if direction == 1:
+                        y = y + dist if y + dist <= h else y + 1  # down
+                    elif direction == 2:
+                        y = y - dist if y - dist >= 0 else y - 1  # top
+                    elif direction == 3:
+                        x = x + dist if x + dist <= w else x + 1  # right
+                    elif direction == 4:
+                        x = x - dist if x - dist >= 0 else x - 1  # left
+                    elif direction == 5:
+                        if y - dist >= 0 and x - dist >= 0:
+                            x -= dist
+                            y -= dist  # left-top
+                        else:
+                            x -= 1
+                            y -= 1
+                    elif direction == 6:
+                        if y + dist <= h and x - dist >= 0:
+                            x -= dist
+                            y += dist  # left-down
+                        else:
+                            x -= 1
+                            y += 1
+                    elif direction == 7:
+                        if y - dist >= 0 and x + dist <= w:
+                            x += dist
+                            y -= dist  # right-top
+                        else:
+                            x += 1
+                            y -= 1
+                    elif direction == 8:
+                        if y + dist <= h and x + dist <= w:
+                            x += dist
+                            y += dist  # right-down
+                        else:
+                            x += 1
+                            y += 1
+
+            return [y, x]
