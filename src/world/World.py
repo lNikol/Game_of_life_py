@@ -61,6 +61,7 @@ class World:
         else:
             self.read_from_file()
 
+
     def random_position(self):
         counter = 0
         while counter < 300:
@@ -95,7 +96,7 @@ class World:
                                         if organism not in self.__organisms_in_game:
                                             self.__organisms_in_game.append(organism)
         except FileNotFoundError:
-            print("File not found:", self.__file_name)
+            print(f"File not found: {self.__file_name}")
 
     def check_cells_around(self, position, only_one):
         neighbors = []
@@ -181,27 +182,28 @@ class World:
             return False
 
     def draw_world(self):
-        s = ""
-        for i in range(self.__height):
-            for j in range(self.__width):
-                org = self.__map.get_cell([i, j]).get_org()
-                if org is None:
-                    s += " . "
-                else:
-                    sym = ""
-                    if org.get_name() == "Grass":
-                        sym = "g"
-                    elif org.get_name() == "Hogweed":
-                        sym = "h"
-                    elif org.get_name() == "Wolfberries":
-                        sym = "w"
-                    elif org.get_name() == "CyberSheep":
-                        sym = "C"
-                    else:
-                        sym = org.get_name()[0]
-                    s += " " + sym + " "
-            s += "\n"
-        print(s)
+        pass
+        # s = ""
+        # for i in range(self.__height):
+        #     for j in range(self.__width):
+        #         org = self.__map.get_cell([i, j]).get_org()
+        #         if org is None:
+        #             s += " . "
+        #         else:
+        #             sym = ""
+        #             if org.get_name() == "Grass":
+        #                 sym = "g"
+        #             elif org.get_name() == "Hogweed":
+        #                 sym = "h"
+        #             elif org.get_name() == "Wolfberries":
+        #                 sym = "w"
+        #             elif org.get_name() == "CyberSheep":
+        #                 sym = "C"
+        #             else:
+        #                 sym = org.get_name()[0]
+        #             s += " " + sym + " "
+        #     s += "\n"
+        # print(s)
 
     # def update_world(self):
     #     for i in range(self.__height):

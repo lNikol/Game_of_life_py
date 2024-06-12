@@ -19,11 +19,12 @@ class Human(Animal):
     def action(self):
         print("\n\nYour turn\n")
         self._world.set_is_player_turn(True)
-        self.set_key(input("Wpisz symbol (wasd): "))
+        #self.set_key(input("Wpisz symbol (wasd): "))
         self.move_system()
         self._world.set_is_player_turn(False)
 
     def set_key(self, key):
+        print(f"Otrzymano: {key}")
         self.__last_key_pressed = key
         if key == 'o':
             self.__ability_key_pressed = True
@@ -130,3 +131,4 @@ class Human(Animal):
             pass
         s += f"{self._y}, {self._x})"
         print(s)
+        self.__last_key_pressed = " "
