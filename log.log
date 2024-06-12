@@ -1,0 +1,5 @@
+World: height: 10, width: 10
+Human(y,x): (0, 2), power: 5, initiative: 4, age: 2
+CyberSheep(y,x): (9, 7), power: 11, initiative: 4, age: 2
+Hogweed(y,x): (8, 5), power: 10, initiative: 0, age: 2
+Hogweed(y,x): (5, 6), power: 10, initiative: 0, age: 2

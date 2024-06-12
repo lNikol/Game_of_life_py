@@ -3,8 +3,8 @@ import random
 
 
 class Human(Animal):
-    def __init__(self, position, world, age=0):
-        super().__init__("Human", position[0], position[1],5, 4, world, age)
+    def __init__(self, position, world, power=5, initiative=4, age=0):
+        super().__init__("Human", position[0], position[1], power, initiative, world, age)
         self.__is_ability_on = False
         self.__is_ability_active = False
         self.__ability_key_pressed = False

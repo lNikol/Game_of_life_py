@@ -3,8 +3,8 @@ from ..animals.Animal import Animal
 
 
 class Hogweed(Plant):
-    def __init__(self, position, world, age=0):
-        super().__init__("Hogweed", position[0], position[1], 10, 0, world, age)
+    def __init__(self, position, world, power=10, initiative=0, age=0):
+        super().__init__("Hogweed", position[0], position[1], power, initiative, world, age)
         print(f"Hogweed ({self._y}, {self._x}) was created")
 
     def copy(self, position):

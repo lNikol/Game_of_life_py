@@ -2,8 +2,8 @@ from .Animal import Animal
 
 
 class Fox(Animal):
-    def __init__(self, position, world, age=0):
-        super().__init__("Fox", position[0], position[1], 9, 5, world, age)
+    def __init__(self, position, world, power=3, initiative=7, age=0):
+        super().__init__("Fox", position[0], position[1], power, initiative, world, age)
         print(f"Fox ({self._y}, {self._x}) was created")
 
     def copy(self, position):

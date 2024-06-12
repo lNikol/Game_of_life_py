@@ -5,8 +5,8 @@ import random
 #from Sheep import Sheep
 
 class CyberSheep(Animal):
-    def __init__(self, position, world, age=0):
-        super().__init__("CyberSheep", position[0], position[1], 11, 4, world, age)
+    def __init__(self, position, world, power=11, initiative=4, age=0):
+        super().__init__("CyberSheep", position[0], position[1], power, initiative, world, age)
         print(f"CyberSheep ({self._y}, {self._x}) was created")
 
     def copy(self, position):

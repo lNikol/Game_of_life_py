@@ -69,9 +69,9 @@ class Organism(ABC):
         self._age = age
         return None
 
-    def write_to_log(self):
+    def save_to_log(self):
         return (f"{self._name}(y,x): ({self._y}, {self._x}), "
-                f"power: {self._power}, initiative: {self._initiative}, age: {self._age}")
+                f"power: {self._power}, initiative: {self._initiative}, age: {self._age}\n")
 
     def check_reproduction(self):
         neighbors = self._world.check_cells_around(self.get_position(), False)

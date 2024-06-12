@@ -23,9 +23,6 @@ class World:
         self.generate_world()
 
     def generate_world(self):
-        #self.read_from_file()
-        #else:
-
         if not self.__read_file:
             if self.__is_hex:
                 self.__width = self.__height
@@ -79,6 +76,8 @@ class World:
             #             new_org = org(rand_pos, self)
             #             self.__map.set_organism(rand_pos, new_org)
             #             self.__organisms.append(new_org)
+        else:
+            self.read_from_file()
 
     def random_position(self):
         counter = 0
@@ -90,32 +89,31 @@ class World:
             counter += 1
         return [-1, -1]
 
-    # def read_from_file(self):
-    #     try:
-    #         with open(self.__file_name, "r") as file:
-    #             for line in file:
-    #                 if not line.startswith("World:"):
-    #                     data = re.findall(r'\d+', line)
-    #                     if data:
-    #                         numbers = list(map(int, data))
-    #                         first_word = line.split("(y,x):")[0].strip()
-    #                         for organism in Organism.organisms:
-    #                             if first_word == organism.__name__:
-    #                                 pos = [numbers[0], numbers[1]]
-    #                                 if first_word == "Human":
-    #                                     from organisms.animals.Human import Human
-    #                                     self.__human = Human(numbers[0], numbers[1], numbers[2], numbers[3], numbers[4],
-    #                                                        self)
-    #                                     self.__map.set_organism(pos, self.__human)
-    #                                     self.__organisms.append(self.__human)
-    #                                 else:
-    #                                     self.set_organism(pos, organism(numbers[0], numbers[1], numbers[2], numbers[3],
-    #                                                                     numbers[4], self))
-    #                                     self.__organisms.append(self.__map.get_cell(pos).org)
-    #                                     if organism not in self.__organisms_in_game:
-    #                                         self.__organisms_in_game.append(organism)
-    #     except FileNotFoundError:
-    #         print("File not found:", self.__file_name)
+    def read_from_file(self):
+        from src.world.organisms.Organisms import all_organisms
+        try:
+            with open(self.__file_name, "r") as file:
+                for line in file:
+                    if not line.startswith("World:"):
+                        data = re.findall(r'\d+', line)
+                        if data:
+                            numbers = list(map(int, data))
+                            first_word = line.split("(y,x):")[0].strip()
+                            for organism in all_organisms:
+                                if first_word == organism.__name__:
+                                    pos = [numbers[0], numbers[1]]
+                                    if first_word == "Human":
+                                        self.__human = all_organisms[len(all_organisms) - 1](pos, self, numbers[2], numbers[3], numbers[4])
+                                        self.__map.set_organism(pos, self.__human)
+                                        self.__organisms.append(self.__human)
+                                    else:
+                                        org = organism(pos, self, numbers[2], numbers[3], numbers[4])
+                                        self.__organisms.append(org)
+                                        self.__map.set_organism(pos, org)
+                                        if organism not in self.__organisms_in_game:
+                                            self.__organisms_in_game.append(organism)
+        except FileNotFoundError:
+            print("File not found:", self.__file_name)
 
     def check_cells_around(self, position, only_one):
         neighbors = []
@@ -165,9 +163,9 @@ class World:
 
     def save_to_log(self):
         self.update_organisms()
-        to_save = f"World({self.__width}_{self.__height}) "
+        to_save = f"World: height: {self.__height}, width: {self.__width}\n"
         for org in self.__organisms:
-            to_save += org.write_to_log()
+            to_save += org.save_to_log()
         return to_save
 
     def update_organisms(self):
