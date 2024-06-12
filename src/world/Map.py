@@ -33,8 +33,6 @@ class Map:
 
         self.replace_organism(old_pos, None)
 
-    def get_cell(self, y, x):
-        return self.__map[y][x]
+    def get_cell(self, position):
+        return self.__map[position[0]][position[1]]
 
-    # def get_cell(self, y, x):
-    #     return self.__map[y][x]

@@ -1,6 +1,7 @@
 import random
 import re
 
+from .Cell import Cell
 
 
 class World:
@@ -19,7 +20,7 @@ class World:
         self.__human_is_alive = True
         self.__is_player_turn = False
         self.__key_pressed = False
-
+        self.__turn_count = 0
         self.generate_world()
 
     def generate_world(self):
@@ -30,35 +31,32 @@ class World:
             if self.__is_hex:
                 self.__width = self.__height
             from .organisms.animals.Human import Human
-            self.__human = Human(0, 0, self)
+            self.__human = Human([0, 0], self)
             self.__organisms.append(self.__human)
             self.__map.set_organism([0, 0], self.__human)
 
             for i in range(self.__height):
                 for j in range(self.__width):
                     if j % 4 == 1:
+                        #plant generate
                         rand_pos = self.random_position()
-                        print(f"rand_pos: {rand_pos}")
                         if rand_pos == [-1, -1]:
                             continue
-                        # zamienić Organism.organisms na inną tablicę
                         from src.world.organisms.Organisms import all_organisms
-                        org_index = (i + j) % 6
-                        org = all_organisms[org_index]
+                        org = all_organisms[(i + j) % 5]
+
                         if org not in self.__organisms_in_game:
                             self.__organisms_in_game.append(org)
                         new_org = org(rand_pos, self)
                         self.__map.set_organism(rand_pos, new_org)
                         self.__organisms.append(new_org)
                     elif j % 4 == 0:
+                        # animal generate
                         rand_pos = self.random_position()
-                        print(f"rand_pos: {rand_pos}")
                         if rand_pos == [-1, -1]:
                             continue
                         from src.world.organisms.Organisms import all_organisms
-                        org_index = i + j % 5 + 5
-                        org = all_organisms[org_index]
-                        print(f"Org: {org}")
+                        org = all_organisms[(i + j) % 5 + 6]
                         if org not in self.__organisms_in_game:
                             self.__organisms_in_game.append(org)
                         new_org = org(rand_pos, self)
@@ -70,7 +68,7 @@ class World:
         while counter < 300:
             x = random.randint(0, self.__width - 1)
             y = random.randint(0, self.__height - 1)
-            if self.__map.get_cell(y, x).get_org() is None:
+            if self.__map.get_cell([y, x]).get_org() is None:
                 return [y, x]
             counter += 1
         return [-1, -1]
@@ -101,6 +99,52 @@ class World:
     #                                         self.__organisms_in_game.append(organism)
     #     except FileNotFoundError:
     #         print("File not found:", self.__file_name)
+
+    def check_cells_around(self, position, only_one):
+        neighbors = []
+        y, x = position
+
+        if not self.__is_hex:
+            for i in range(-1, 2):
+                for j in range(-1, 2):
+                    if i == 0 and j == 0:
+                        continue
+                    new_y = y + i
+                    new_x = x + j
+                    if 0 <= new_x < self.__width and 0 <= new_y < self.__height:
+                        cell = self.__map.get_cell([new_y, new_x])
+                        if only_one and cell.get_org() is None:
+                            return [cell]
+                        neighbors.append(cell)
+
+            if only_one:
+                if neighbors:
+                    return [neighbors[0]]
+                else:
+                    neighbors.append(Cell(-1, -1, None))
+                    return neighbors
+            return neighbors
+        else:
+            # For hexagonal grid
+            d_lines = [0, 0, -1, 1, 1, -1]
+            d_poses = [-1, 1, 1, -1, 0, 0]
+
+            for i in range(6):
+                new_y = y + d_lines[i]
+                new_x = x + d_poses[i]
+                if 0 <= new_y < self.__height and 0 <= new_x < self.__width:
+                    cell = self.__map.get_cell([new_y, new_x])
+                    if only_one and cell.get_org() is None:
+                        return [cell]
+                    neighbors.append(cell)
+
+            if only_one:
+                if neighbors:
+                    return [neighbors[0]]
+                else:
+                    neighbors.append(Cell(-1, -1, None))
+                    return neighbors
+            return neighbors
 
     def save_to_log(self):
         self.update_organisms()
@@ -134,6 +178,7 @@ class World:
             self.update_organisms()
             for org in self.__organisms:
                 if not org.get_has_moved() and org.get_is_alive():
+                    self.__turn_count += 1
                     org.set_has_moved(True)
                     org.action()
                     #self.update_world()
@@ -157,7 +202,7 @@ class World:
                     elif org.get_name() == "Wolfberries":
                         sym = "W"
                     elif org.get_name() == "CyberSheep":
-                        sym = "CS"
+                        sym = "C"
                     else:
                         sym = org.get_name()[0]
                     s += " " + sym + " "
@@ -193,6 +238,7 @@ class World:
         self.__map.replace_organism(position, new_org)
 
     def delete_organism(self, old_org):
+        print(f"old_org: {old_org}")
         if old_org is None:
             return
         old_org.set_is_alive(False)
@@ -248,3 +294,6 @@ class World:
 
     def get_height(self):
         return self.__height
+
+    def get_turn_count(self):
+        return self.__turn_count

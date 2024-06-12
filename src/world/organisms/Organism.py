@@ -3,15 +3,15 @@ from abc import ABC, abstractmethod
 
 class Organism(ABC):
     def __init__(self, name="", y=-1, x=-1, power=-1, initiative=-1, world=None, age=0):
-        self.__name = name
-        self.__y = y
-        self.__x = x
-        self.__age = age
-        self.__power = power
-        self.__initiative = initiative
-        self.__world = world
-        self.__has_moved = False
-        self.__is_alive = True
+        self._name = name
+        self._y = y
+        self._x = x
+        self._age = age
+        self._power = power
+        self._initiative = initiative
+        self._world = world
+        self._has_moved = True
+        self._is_alive = True
 
     @abstractmethod
     def action(self):
@@ -26,55 +26,55 @@ class Organism(ABC):
         pass
 
     def get_name(self):
-        return self.__name
+        return self._name
 
     def get_power(self):
-        return self.__power
+        return self._power
 
     def set_power(self, power):
-        self.__power = power
+        self._power = power
         return None
 
     def get_initiative(self):
-        return self.__initiative
+        return self._initiative
 
     def get_position(self):
-        return self.__y, self.__x
+        return self._y, self._x
 
     def get_world(self):
-        return self.__world
+        return self._world
 
     def get_has_moved(self):
-        return self.__has_moved
+        return self._has_moved
 
     def set_has_moved(self, hasMoved):
-        self.__has_moved = hasMoved
+        self._has_moved = hasMoved
         return None
 
     def get_is_alive(self):
-        return self.__has_moved
+        return self._is_alive
 
     def set_is_alive(self, is_alive):
-        self.__is_alive = is_alive
+        self._is_alive = is_alive
         return None
 
     def set_position(self, y, x):
-        self.__y, self.__x = y, x
+        self._y, self._x = y, x
         return None
 
     def get_age(self):
-        return self.__age
+        return self._age
 
     def set_age(self, age):
-        self.__age = age
+        self._age = age
         return None
 
     def write_to_log(self):
-        return (f"{self.__name}(y,x): ({self.__y}, {self.__x}), "
-                f"power: {self.__power}, initiative: {self.__initiative}, age: {self.__age}\n")
+        return (f"{self._name}(y,x): ({self._y}, {self._x}), "
+                f"power: {self._power}, initiative: {self._initiative}, age: {self._age}\n")
 
     def check_reproduction(self):
-        neighbors = self.__world.check_cells_around(self.get_position(), False)
+        neighbors = self._world.check_cells_around(self.get_position(), False)
         empty_place = -1
         similar_neighbors = 0
         for index, neighbor in enumerate(neighbors):
@@ -84,10 +84,10 @@ class Organism(ABC):
                 empty_place = index
 
         if similar_neighbors >= 2:
-            self.__world.delete_organism(self)
+            self._world.delete_organism(self)
             return False
         elif empty_place != -1 and neighbors[empty_place].get_pos()[0] != -1:
-            self.__world.set_organism(self, neighbors[empty_place].get_pos())
+            self._world.set_organism(self, neighbors[empty_place].get_pos())
             return True
         else:
             return False

@@ -5,10 +5,10 @@ from src.world.organisms.plants.Hogweed import Hogweed
 class CyberSheep(Animal):
     def __init__(self, position, world, age=0):
         super().__init__("CyberSheep", position[0], position[1], 11, 4, world, age)
-        print(f"CyberSheep ({self.__y}, {self.__x}) was created\n")
+        print(f"CyberSheep ({self._y}, {self._x}) was created\n")
 
     def copy(self, position):
-        return CyberSheep(position, self.__world)
+        return CyberSheep(position, self._world)
 
     def find_hogweed(self):
         return None
