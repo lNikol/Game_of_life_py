@@ -273,8 +273,7 @@ class World:
             self.__map.set_organism([*position], child)
             return True
         else:
-            self.add_message(("setOrganism in World: Cannot set organism, the place by (y,x)", position[0], ",", position[1],
-                  "isn't null"))
+            self.add_message((f"setOrganism in World: Cannot set organism, the place by ({position[0]},{position[1]}) isn't null"))
             return False
 
     def set_is_hex(self, is_hex):
@@ -585,14 +584,26 @@ class World:
             return [y, x]
 
     def check_cells_in_radius(self, position, radius):
+        HEX_DIRECTIONS = [(1, 0), (0, 1), (-1, 1), (-1, 0), (0, -1), (1, -1)]
         cells = []
         x, y = position
-        for dx in range(-radius, radius + 1):
-            for dy in range(-radius, radius + 1):
-                if dx != 0 or dy != 0:
-                    neighbor_position = (x + dx, y + dy)
+
+        if self.__is_hex:
+            for direction in HEX_DIRECTIONS:
+                for dist in range(1, radius + 1):
+                    neighbor_x = x + direction[0] * dist
+                    neighbor_y = y + direction[1] * dist
+                    neighbor_position = (neighbor_y, neighbor_x)
                     if self.is_position_valid(neighbor_position):
-                        cells.append(self.get_cell(neighbor_position))
+                        cells.append(self.get_cell([*neighbor_position]))
+        else:
+            for dx in range(-radius, radius + 1):
+                for dy in range(-radius, radius + 1):
+                    if dx != 0 or dy != 0:
+                        neighbor_position = (x + dx, y + dy)
+                        if self.is_position_valid(neighbor_position):
+                            cells.append(self.get_cell([*neighbor_position]))
+
         return cells
 
     def is_position_valid(self, position):

@@ -14,9 +14,9 @@ class Game(tk.Tk):
             self.read_log_file()
             self.create_world(self.dane[0], self.dane[1], self.dane[2], self.dane[3])
         else:
-            while self.dane[0] <= 4 or self.dane[0] >= 100 or self.dane[1] <= 4 or self.dane[1] >= 100:
-                self.dane[0] = int(input("Write width (from 5 to 100): "))
-                self.dane[1] = int(input("Write width (from 5 to 100): "))
+            while self.dane[0] <= 4 or self.dane[0] >= 40 or self.dane[1] <= 4 or self.dane[1] >= 40:
+                self.dane[0] = int(input("Write width (from 5 to 40): "))
+                self.dane[1] = int(input("Write height (from 5 to 40): "))
             self.create_world(self.dane[0], self.dane[1], False, is_hex)
 
 
@@ -42,14 +42,14 @@ class Game(tk.Tk):
                     self.dane[0] = int(parts[2].split(",")[0])
                     self.dane[1] = int(parts[-1])
                 else:
-                    while self.dane[0] <= 4 or self.dane[0] >= 100 or self.dane[1] <= 4 or self.dane[1] >= 100:
-                        self.dane[0] = input("Write width (from 5 to 100)")
-                        self.dane[1] = input("Write width (from 5 to 100)")
+                    while self.dane[0] <= 4 or self.dane[0] >= 40 or self.dane[1] <= 4 or self.dane[1] >= 40:
+                        self.dane[0] = int(input("Write width (from 5 to 40): "))
+                        self.dane[1] = int(input("Write height (from 5 to 40): "))
                     # czy is_hex : self.dane[2] == 1
         except (FileNotFoundError, IOError):
-            while self.dane[0] <= 4 or self.dane[0] >= 100 or self.dane[1] <= 4 or self.dane[1] >= 100:
-                self.dane[0] = input("Write width (from 5 to 100)")
-                self.dane[1] = input("Write width (from 5 to 100)")
+            while self.dane[0] <= 4 or self.dane[0] >= 40 or self.dane[1] <= 4 or self.dane[1] >= 40:
+                self.dane[0] = int(input("Write width (from 5 to 40): "))
+                self.dane[1] = int(input("Write height (from 5 to 40): "))
 
 
     def end_game(self):

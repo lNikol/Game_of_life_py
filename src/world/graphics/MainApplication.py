@@ -75,7 +75,7 @@ class MainApplication:
         canvas_height = self.canvas.winfo_height()
 
         if not self.game_world.get_is_hex():
-            self.cell_size = min(canvas_width // self.game_world.get_width(), canvas_height // self.game_world.get_height()) * 0.75
+            self.cell_size = min(canvas_width // self.game_world.get_width(), canvas_height // self.game_world.get_height()) * (0.6+self.game_world.get_width()/18/10)
             for y in range(self.game_world.get_height()):
                 for x in range(self.game_world.get_width()):
                     color = "white"
@@ -95,9 +95,9 @@ class MainApplication:
 
                     if organism:
                         sym = organism.get_name()[0]
-                        self.canvas.create_text(x0 + self.cell_size // 2, y0 + self.cell_size // 2, text=sym, font=("Helvetica", 12))
+                        self.canvas.create_text(x0 + self.cell_size // 1.8, y0 + self.cell_size // 1.8, text=sym, font=("Helvetica", 12))
         else:
-            self.cell_size = min(canvas_width // self.game_world.get_width(), canvas_height // self.game_world.get_height()) * 0.6
+            self.cell_size = min(canvas_width // self.game_world.get_width(), canvas_height // self.game_world.get_height()) * (0.6+self.game_world.get_width()/35/10)
             for y in range(self.game_world.get_height()):
                 for x in range(self.game_world.get_width()):
                     color = "white"

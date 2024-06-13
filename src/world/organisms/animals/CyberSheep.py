@@ -24,7 +24,7 @@ class CyberSheep(Animal):
         from ..plants.Hogweed import Hogweed
 
         current_position = self.get_position()
-        cells_in_radius = self._world.check_cells_in_radius(current_position, 2)
+        cells_in_radius = self._world.check_cells_in_radius(current_position, 1 if self._world.get_is_hex() else 2)
         nearest_hogweed = None
         min_distance = float('inf')
 
