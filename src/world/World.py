@@ -20,6 +20,7 @@ class World:
         self.__is_player_turn = False
         self.__key_pressed = False
         self.__turn_count = 0
+        self.__messages = []
         self.generate_world()
 
     def generate_world(self):
@@ -102,7 +103,7 @@ class World:
                                         if organism not in self.__organisms_in_game:
                                             self.__organisms_in_game.append(organism)
         except FileNotFoundError:
-            print(f"File not found: {self.__file_name}")
+            self.add_message(f"File not found: {self.__file_name}")
 
     def check_cells_around(self, position, only_one):
         neighbors = []
@@ -181,7 +182,7 @@ class World:
                     self.draw_world()
             self.__turn_count += 1
         else:
-            print("\n\nYou have died\n\n")
+            self.add_message("\n\nYou have died\n\n")
             return False
 
     def draw_world(self):
@@ -272,8 +273,8 @@ class World:
             self.__map.set_organism([*position], child)
             return True
         else:
-            print("setOrganism in World: Cannot set organism, the place by (y,x)", position[0], ",", position[1],
-                  "isn't null")
+            self.add_message(("setOrganism in World: Cannot set organism, the place by (y,x)", position[0], ",", position[1],
+                  "isn't null"))
             return False
 
     def set_is_hex(self, is_hex):
@@ -302,6 +303,12 @@ class World:
     def get_height(self):
         return self.__height
 
+    def add_message(self, msg):
+        self.__messages.append(msg + "\n")
+    def get_messages(self):
+        return self.__messages
+    def set_messages(self):
+        return self.__messages.clear()
     def get_turn_count(self):
         return self.__turn_count
 

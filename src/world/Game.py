@@ -31,7 +31,7 @@ class Game(tk.Tk):
             info = self.__world.save_to_log()
             fw.write(info)
             fw.close()
-            print(f"Gra została zapisana do log.log")
+            self.__world.add_message(f"Gra została zapisana do log.log")
 
     def read_log_file(self, is_hex=False):
         try:

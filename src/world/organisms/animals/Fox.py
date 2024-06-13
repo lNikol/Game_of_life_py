@@ -4,7 +4,7 @@ from .Animal import Animal
 class Fox(Animal):
     def __init__(self, position, world, power=3, initiative=7, age=0):
         super().__init__("Fox", position[0], position[1], power, initiative, world, age)
-        print(f"Fox ({self._y}, {self._x}) was created")
+        self._world.add_message(f"Fox ({self._y}, {self._x}) was created")
 
     def copy(self, position):
         return Fox(position, self._world)
@@ -19,7 +19,7 @@ class Fox(Animal):
                 self.set_position(*(cell.get_position()), False)
                 super().collision(cell.get_org())
                 s += f"{self._y}, {self._x})"
-                print(s)
+                self._world.add_message(s)
                 return
 
     def rebound_attack(self, org):

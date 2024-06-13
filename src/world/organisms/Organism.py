@@ -58,7 +58,7 @@ class Organism(ABC):
         self._is_alive = is_alive
         from .animals.Human import Human
         if isinstance(self, Human):
-            print("\n\nYou have died\n\n")
+            self._world.add_message("\n\nYou have died\n\n")
         return None
 
     def set_position(self, y, x):

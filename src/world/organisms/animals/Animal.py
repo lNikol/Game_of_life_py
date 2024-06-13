@@ -34,7 +34,7 @@ class Animal(Organism):
         self.set_position(self._y, self._x, is_old=True)
         self.set_position(new_y, new_x, is_old=False)
         s+=f"{self._y}, {self._x})"
-        print(s)
+        self._world.add_message(s)
 
     def action(self):
         self.move()
@@ -64,14 +64,14 @@ class Animal(Organism):
                         self._world.delete_organism(org)
                     else:
                         if self._power >= org.get_power():
-                            print(f"I ({self._name}, {self._y}, {self._x}) killed {org.get_name()}")
+                            self._world.add_message(f"I ({self._name}, {self._y}, {self._x}) killed {org.get_name()}")
                             new_y, new_x = org.get_position()
                             self._world.delete_organism(org)
                             self._world.replace_organism([*self.get_old_position()], None)
                             self._world.replace_organism([new_y, new_x], self)
                             self.set_position(self._y, self._x, is_old=True)
                         else:
-                            print(f"I ({self._name}, {self._y}, {self._x}) was killed by {org.get_name()}")
+                            self._world.add_message(f"I ({self._name}, {self._y}, {self._x}) was killed by {org.get_name()}")
                             self._world.delete_organism(self)
 
         elif isinstance(org, Plant):

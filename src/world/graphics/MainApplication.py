@@ -1,14 +1,21 @@
 import tkinter as tk
 from cmath import sqrt
 from tkinter import Menu
-
 class MainApplication:
     def __init__(self, root):
         self.cell_size = 0
-        read_log_file = False
-        w = 0
-        h = 0
-        is_hex = False
+        read_log_file = input("Please write read_log_file (True or False): ")
+        if read_log_file.lower() == "true":
+            read_log_file = True
+        else:
+            print("Incorrect input in read_log_file or False")
+            read_log_file = False
+        is_hex = input("Please write is_hex (True or False): ")
+        if is_hex.lower() == "true":
+            is_hex = True
+        else:
+            print("Incorrect input in is_hex or False")
+            is_hex = False
         from ..Game import Game
         self.game = Game(read_log_file, is_hex)
         self.game_world = self.game.get_world()
@@ -26,7 +33,6 @@ class MainApplication:
         menu.post(event.x_root, event.y_root)
 
     def add_organism(self, y, x, organism):
-            print(f"przyszlo: {y,x}")
             org = organism([y, x], self.game_world)
             if self.organism_map.get_cell([y, x]).get_org() is None:
                 self.organism_map.set_organism([y, x], org)
@@ -43,7 +49,7 @@ class MainApplication:
         self.info_frame = tk.Frame(self.frame_main, bg="lightgray")
         self.info_frame.pack(side=tk.RIGHT, fill=tk.Y)
 
-        self.info_textbox = tk.Text(self.info_frame, height=10, width=30)
+        self.info_textbox = tk.Text(self.info_frame, height=40, width=60)
         self.info_textbox.pack(padx=10, pady=10)
 
         self.turn_button = tk.Button(self.info_frame, text="Take Turn", command=self.take_turn)
@@ -65,7 +71,6 @@ class MainApplication:
         self.canvas.delete("all")
         self.canvas.update()
 
-        # Uzyskanie wymiarów Canvas
         canvas_width = self.canvas.winfo_width()
         canvas_height = self.canvas.winfo_height()
 
@@ -88,7 +93,6 @@ class MainApplication:
                     y1 = y0 + self.cell_size
                     self.canvas.tag_bind(self.canvas.create_rectangle(x0, y0, x1, y1, fill=color), "<Button-3>", lambda event, yy=y, xx=x: self.show_organism_menu(event, yy, xx))
 
-                    # Rysowanie literki organizmu, jeśli istnieje
                     if organism:
                         sym = organism.get_name()[0]
                         self.canvas.create_text(x0 + self.cell_size // 2, y0 + self.cell_size // 2, text=sym, font=("Helvetica", 12))
@@ -142,17 +146,17 @@ class MainApplication:
         return int(q), int(r)
 
     def take_turn(self):
-        # Wykonanie tury gry
-        # Tutaj dodaj logikę wykonania tury dla każdego organizmu
+        self.add_text_to_box(f"\ntura {self.game_world.get_turn_count()}: Rozpoczięto turę \n")
         if self.game_world.get_human().get_key() == " ":
             self.update_organisms()
-            self.draw_grid()  # Rysowanie zaktualizowanej siatki
+            self.draw_grid()
+            self.add_text_to_box(self.game_world.get_messages())
             return
-        # Przykładowe aktualizowanie organizmów na mapie
         self.game_world.take_a_turn()
         if self.game_world.get_human_is_alive:
             self.update_organisms()
-            self.draw_grid()  # Rysowanie zaktualizowanej siatki
+            self.draw_grid()
+            self.add_text_to_box(self.game_world.get_messages())
         else:
             self.close_ui()
             return False
@@ -161,16 +165,18 @@ class MainApplication:
         self.organism_map = self.game_world.get_map()
 
     def save_game(self):
+        self.add_text_to_box(f"tura {self.game_world.get_turn_count()}: Pobrano grę \n")
         self.game.write_to_log()
         # Implementacja logiki ładowania gry
         pass
 
-    def add_text_to_box(self, text):
+    def add_text_to_box(self, messages):
         # Funkcja dodająca tekst do Text widgetu
         self.info_textbox.config(state=tk.NORMAL)  # Ustawienie stanu na NORMAL aby modyfikować tekst
-        self.info_textbox.insert(tk.END, text + "\n")
-        self.info_textbox.config(state=tk.DISABLED)  # Ponowne ustawienie stanu na DISABLED
-
+        for message in messages:
+            self.info_textbox.insert(tk.END, message)
+        self.info_textbox.config(state=tk.DISABLED)
+        self.game_world.set_messages()
     def key_listener(self, event):
         key = event.keysym.lower()
         if key == 'w':  # Góra
@@ -185,7 +191,3 @@ class MainApplication:
             self.game_world.set_key('q')
         elif key == 'o':
             self.game_world.set_key('o')
-
-        def close_ui(self):
-            # Metoda do zamykania UI
-            self.root.destroy()
