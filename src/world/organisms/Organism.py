@@ -56,6 +56,9 @@ class Organism(ABC):
 
     def set_is_alive(self, is_alive):
         self._is_alive = is_alive
+        from .animals.Human import Human
+        if isinstance(self, Human):
+            print("\n\nYou have died\n\n")
         return None
 
     def set_position(self, y, x):

@@ -27,41 +27,43 @@ class World:
             if self.__is_hex:
                 self.__width = self.__height
             from .organisms.animals.Human import Human
-            self.__human = Human([1, 0], self)
+            self.__human = Human([0, 0], self)
             self.__organisms.append(self.__human)
-            self.__map.set_organism([1, 0], self.__human)
+            self.__map.set_organism([0, 0], self.__human)
 
-            from .organisms.plants.Guarana import Guarana
-            org = Guarana([1, 3], self)
-            self.__organisms.append(org)
-            self.__map.set_organism([1,3], org)
-            # for i in range(self.__height):
-            #     for j in range(self.__width):
-            #         if j % 4 == 1:
-            #             #plant generate
-            #             rand_pos = self.random_position()
-            #             if rand_pos == [-1, -1]:
-            #                 continue
-            #             from .organisms.Organisms import all_organisms
-            #             org = all_organisms[(i + j) % 5]
-            #
-            #             if org not in self.__organisms_in_game:
-            #                 self.__organisms_in_game.append(org)
-            #             new_org = org(rand_pos, self)
-            #             self.__map.set_organism(rand_pos, new_org)
-            #             self.__organisms.append(new_org)
-            #         elif j % 4 == 0:
-            #             # animal generate
-            #             rand_pos = self.random_position()
-            #             if rand_pos == [-1, -1]:
-            #                 continue
-            #             from .organisms.Organisms import all_organisms
-            #             org = all_organisms[(i + j) % 6 + 5]
-            #             if org not in self.__organisms_in_game:
-            #                 self.__organisms_in_game.append(org)
-            #             new_org = org(rand_pos, self)
-            #             self.__map.set_organism(rand_pos, new_org)
-            #             self.__organisms.append(new_org)
+            # from .organisms.plants.Guarana import Guarana
+            # org = Guarana([1, 3], self)
+            # self.__organisms.append(org)
+            # self.__map.set_organism([1,3], org)
+            # self.__organisms_in_game.append(org)
+
+            for i in range(self.__height):
+                for j in range(self.__width):
+                    if j % 4 == 1:
+                        #plant generate
+                        rand_pos = self.random_position()
+                        if rand_pos == [-1, -1]:
+                            continue
+                        from .organisms.Organisms import all_organisms
+                        org = all_organisms[(i + j) % 5]
+
+                        if org not in self.__organisms_in_game:
+                            self.__organisms_in_game.append(org)
+                        new_org = org(rand_pos, self)
+                        self.__map.set_organism(rand_pos, new_org)
+                        self.__organisms.append(new_org)
+                    elif j % 4 == 0:
+                        # animal generate
+                        rand_pos = self.random_position()
+                        if rand_pos == [-1, -1]:
+                            continue
+                        from .organisms.Organisms import all_organisms
+                        org = all_organisms[(i + j) % 6 + 5]
+                        if org not in self.__organisms_in_game:
+                            self.__organisms_in_game.append(org)
+                        new_org = org(rand_pos, self)
+                        self.__map.set_organism(rand_pos, new_org)
+                        self.__organisms.append(new_org)
         else:
             self.read_from_file()
 
@@ -156,10 +158,8 @@ class World:
         return to_save
 
     def update_organisms(self):
-
         i = len(self.__organisms) - 1
         while i >= 0:
-            # czy wszystkich usunie?
             if not self.__organisms[i].get_is_alive():
                 self.__organisms.pop(i)
             i -= 1
@@ -180,7 +180,6 @@ class World:
                     org.action()
                     self.draw_world()
             self.__turn_count += 1
-
         else:
             print("\n\nYou have died\n\n")
             return False
@@ -268,8 +267,6 @@ class World:
 
     def set_organism(self, position, org):
         if self.__map.get_cell(position).get_org() is None:
-            print(org)
-            print(f"pos: {position}")
             child = org.copy(position)
             self.__organisms.append(child)
             self.__map.set_organism([*position], child)
