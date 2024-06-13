@@ -8,7 +8,7 @@ class Human(Animal):
         self.__is_ability_on = False
         self.__is_ability_active = False
         self.__ability_key_pressed = False
-        self.__last_key_pressed = ' '
+        self.__last_key_pressed = " "
         self.__counter_after_ability = 0
         self.__ability_counter = -1
         print(f"Human ({self._y},{self._x}) was created")
@@ -19,7 +19,6 @@ class Human(Animal):
     def action(self):
         print("\n\nYour turn\n")
         self._world.set_is_player_turn(True)
-        #self.set_key(input("Wpisz symbol (wasd): "))
         self.move_system()
         self._world.set_is_player_turn(False)
 
@@ -127,8 +126,74 @@ class Human(Animal):
                     print("You cannot move to the right")
 
         else:
-            # Implementacja ruchów dla szachownicy heksagonalnej
-            pass
+            if self.__last_key_pressed == 'q':
+                if 1 <= self._y < self._world.get_height():
+                    self.set_ability_active()
+                    # top
+                    self._y -= 1
+                    print("You cannot move two squares (you will move one square) because there is a border there \n")
+                    self.collision(self._world.get_cell(self.get_position()).get_org())
+                    self._world.set_is_player_turn(False)
+                else:
+                    print("You cannot move to the top")
+            elif self.__last_key_pressed == 's':
+                # down
+                if 0 <= self._y < self._world.get_height() and 1 <= self._x < self._world.get_height():
+                    self.set_ability_active()
+                    self._y += 1
+                    self.collision(self._world.get_cell(self.get_position()).get_org())
+                    self._world.set_is_player_turn(False)
+                else:
+                    print("You cannot move to the down-down")
+            elif self.__last_key_pressed == 'w':
+                # góra-prawo
+                if 1 <= self._y < self._world.get_height() and 0 <= self._x < self._world.get_height():
+                    self.set_ability_active()
+                    if self.__is_ability_on:
+                        self._x += 1
+                        self._y -= 1
+                        self._world.set_is_player_turn(False)
+                        self.collision(self._world.get_cell(self.get_position()).get_org())
+                        self._world.set_is_player_turn(False)
+                    else:
+                        print("You cannot move to the top-top, please activate the ability")
+                else:
+                    print("You cannot move to the top-top, please activate the ability")
+            elif self.__last_key_pressed == 'a':
+                # left
+                if 1 <= self._x < self._world.get_width():
+                    self.set_ability_active()
+                    if self.__is_ability_on:
+                        if self._x - 2 >= 0:
+                            self._x -= 2
+                        else:
+                            self._x -= 1
+                            print(
+                                "You cannot move two squares (you will move one square) because there is a border there \n")
+                    else:
+                        self._x -= 1
+                    self.collision(self._world.get_cell(self.get_position()).get_org())
+                    self._world.set_is_player_turn(False)
+                else:
+                    print("You cannot move to the left")
+            elif self.__last_key_pressed == 'd':
+                # right
+                if 0 <= self._x < self._world.get_width() - 1:
+                    self.set_ability_active()
+                    if self.__is_ability_on:
+                        if self._x + 2 < self._world.get_height():
+                            self._x += 2
+                        else:
+                            self._x += 1
+                            print(
+                                "You cannot move two squares (you will move one square) because there is a border there \n")
+                    else:
+                        self._x += 1
+                    self.collision(self._world.get_cell(self.get_position()).get_org())
+                    self._world.set_is_player_turn(False)
+                else:
+                    print("You cannot move to the right")
+
         s += f"{self._y}, {self._x})"
         print(s)
         self.__last_key_pressed = " "

@@ -27,37 +27,41 @@ class World:
             if self.__is_hex:
                 self.__width = self.__height
             from .organisms.animals.Human import Human
-            self.__human = Human([0, 0], self)
+            self.__human = Human([1, 0], self)
             self.__organisms.append(self.__human)
-            self.__map.set_organism([0, 0], self.__human)
+            self.__map.set_organism([1, 0], self.__human)
 
-            for i in range(self.__height):
-                for j in range(self.__width):
-                    if j % 4 == 1:
-                        #plant generate
-                        rand_pos = self.random_position()
-                        if rand_pos == [-1, -1]:
-                            continue
-                        from .organisms.Organisms import all_organisms
-                        org = all_organisms[(i + j) % 5]
-
-                        if org not in self.__organisms_in_game:
-                            self.__organisms_in_game.append(org)
-                        new_org = org(rand_pos, self)
-                        self.__map.set_organism(rand_pos, new_org)
-                        self.__organisms.append(new_org)
-                    elif j % 4 == 0:
-                        # animal generate
-                        rand_pos = self.random_position()
-                        if rand_pos == [-1, -1]:
-                            continue
-                        from .organisms.Organisms import all_organisms
-                        org = all_organisms[(i + j) % 6 + 5]
-                        if org not in self.__organisms_in_game:
-                            self.__organisms_in_game.append(org)
-                        new_org = org(rand_pos, self)
-                        self.__map.set_organism(rand_pos, new_org)
-                        self.__organisms.append(new_org)
+            from .organisms.plants.Guarana import Guarana
+            org = Guarana([1, 3], self)
+            self.__organisms.append(org)
+            self.__map.set_organism([1,3], org)
+            # for i in range(self.__height):
+            #     for j in range(self.__width):
+            #         if j % 4 == 1:
+            #             #plant generate
+            #             rand_pos = self.random_position()
+            #             if rand_pos == [-1, -1]:
+            #                 continue
+            #             from .organisms.Organisms import all_organisms
+            #             org = all_organisms[(i + j) % 5]
+            #
+            #             if org not in self.__organisms_in_game:
+            #                 self.__organisms_in_game.append(org)
+            #             new_org = org(rand_pos, self)
+            #             self.__map.set_organism(rand_pos, new_org)
+            #             self.__organisms.append(new_org)
+            #         elif j % 4 == 0:
+            #             # animal generate
+            #             rand_pos = self.random_position()
+            #             if rand_pos == [-1, -1]:
+            #                 continue
+            #             from .organisms.Organisms import all_organisms
+            #             org = all_organisms[(i + j) % 6 + 5]
+            #             if org not in self.__organisms_in_game:
+            #                 self.__organisms_in_game.append(org)
+            #             new_org = org(rand_pos, self)
+            #             self.__map.set_organism(rand_pos, new_org)
+            #             self.__organisms.append(new_org)
         else:
             self.read_from_file()
 
@@ -473,7 +477,107 @@ class World:
                         else:
                             x += 1
                             y += 1
-
+            else:
+                if y == 0:
+                    if x == 0:
+                        choice = random.randint(1, 2)
+                        if choice == 1:  # down
+                            y += dist if y + dist <= h else 1
+                        elif choice == 2:  # right
+                            x += dist if x + dist <= w else 1
+                    elif x == w:
+                        choice = random.randint(1, 3)
+                        if choice == 1:  # down
+                            y += 1
+                        elif choice == 2:  # left
+                            x -= 1
+                        elif choice == 3:  # left-down-down
+                            if dist == 2:
+                                x -= 1
+                                y += 1
+                    else:
+                        choice = random.randint(1, 4)
+                        if choice == 1:  # right
+                            x += 1
+                        elif choice == 2:  # left
+                            x -= 1
+                        elif choice == 3:  # down
+                            y += 1
+                        elif choice == 4:  # down-down
+                            if dist == 2:
+                                x -= 1
+                                y += 1
+                elif y == h:
+                    if x == 0:
+                        choice = random.randint(1, 3)
+                        if choice == 1:  # top
+                            y -= dist
+                        elif choice == 2:  # right
+                            x += dist
+                        elif choice == 3:  # top-top
+                            if dist == 2:
+                                x += 1
+                                y += 1
+                    elif x == w:
+                        choice = random.randint(1, 2)
+                        if choice == 1:  # top
+                            y -= 1
+                        elif choice == 2:  # left
+                            x -= 1
+                    else:
+                        choice = random.randint(1, 4)
+                        if choice == 1:  # top
+                            y -= 1
+                        elif choice == 2:  # left
+                            x -= 1
+                        elif choice == 3:  # right
+                            x += 1
+                        elif choice == 4:  # top-top
+                            if dist == 2:
+                                x += 1
+                                y -= 1
+                elif x == w and 1 <= y < h:
+                    choice = random.randint(1, 4)
+                    if choice == 1:  # top
+                        y -= 1
+                    elif choice == 2:  # down
+                        y += 1
+                    elif choice == 3:  # left
+                        x -= dist
+                    elif choice == 4:  # down-down
+                        if dist == 2:
+                            x -= 1
+                            y += 1
+                elif x == 0 and 1 <= y < h:
+                    choice = random.randint(1, 4)
+                    if choice == 1:  # down
+                        y += 1
+                    elif choice == 2:  # right
+                        x += 1
+                    elif choice == 3:  # top
+                        y -= 1
+                    elif choice == 4:  # top-top
+                        if dist == 2:
+                            x += 1
+                            y -= 1
+                else:
+                    choice = random.randint(1, 6)
+                    if choice == 1:  # down
+                        y += 1
+                    elif choice == 2:  # top
+                        y -= 1
+                    elif choice == 3:  # right
+                        x += 1
+                    elif choice == 4:  # left
+                        x -= 1
+                    elif choice == 5:  # down-down
+                        if dist == 2:
+                            x -= 1
+                            y += 1
+                    elif choice == 6:  # right-top
+                        if dist == 2:
+                            x += 1
+                            y -= 1
             return [y, x]
 
     def check_cells_in_radius(self, position, radius):
